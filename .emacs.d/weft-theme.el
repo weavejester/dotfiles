@@ -53,7 +53,7 @@
    ;; Powerline
    `(powerline-active1 ((t (:background "#3a3a3a" :foreground "#eeeeee"))))
    `(powerline-active2 ((t (:background "#222222" :foreground "#999999"))))
-   `(powerline-inactive1 ((t (:background "#777777" :foreground "#ffffff"))))
+   `(powerline-inactive1 ((t (:background "#666666" :foreground "#ffffff"))))
    `(powerline-inactive2 ((t (:background "#444444" :foreground "#ffffff"))))
    `(powerline-evil-normal ((t (:background "#559900" :foreground "#002200"))))
    `(powerline-evil-insert ((t (:background "#dd3311" :foreground "#220000"))))
