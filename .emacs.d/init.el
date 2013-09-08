@@ -123,12 +123,6 @@
 
 ;; Custom shortcuts
 
-(defun newline-from-middle ()
-  (interactive)
-  (end-of-line)
-  (paredit-newline))
-
-(global-set-key (kbd "s-<return>") 'newline-from-middle)
 (global-set-key (kbd "s-b") 'ido-switch-buffer)
 (global-set-key (kbd "s-o") 'ido-find-file)
 
