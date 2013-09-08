@@ -144,6 +144,9 @@
 (setq evil-cross-lines t)
 (setq evil-move-cursor-back nil)
 
+;; Evil smart-parens
+(require 'evil-sp)
+
 ;; See: https://bitbucket.org/lyro/evil/issue/113
 (ido-ubiquitous-disable-in evil-ex)
 
