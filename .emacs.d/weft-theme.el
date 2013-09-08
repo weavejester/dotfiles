@@ -51,13 +51,13 @@
    `(ido-only-match ((t (:foreground ,weft-green))))
    `(ido-subdir ((t (:foreground ,weft-blue-light))))
    ;; Powerline
-   `(powerline-active1 ((t (:background "#3a3a3a" :foreground "#ffffff"))))
-   `(powerline-active2 ((t (:background "#222222" :foreground "#ffdd44"))))
+   `(powerline-active1 ((t (:background "#3a3a3a" :foreground "#eeeeee"))))
+   `(powerline-active2 ((t (:background "#222222" :foreground "#999999"))))
    `(powerline-inactive1 ((t (:background "#777777" :foreground "#ffffff"))))
    `(powerline-inactive2 ((t (:background "#444444" :foreground "#ffffff"))))
-   `(powerline-evil-normal ((t (:background "#990000" :foreground "#ffffff"))))
-   `(powerline-evil-insert ((t (:background "#009900" :foreground "#ffffff"))))
-   `(powerline-evil-visual ((t (:background "#009999" :foreground "#ffffff"))))))
+   `(powerline-evil-normal ((t (:background "#559900" :foreground "#002200"))))
+   `(powerline-evil-insert ((t (:background "#dd3311" :foreground "#220000"))))
+   `(powerline-evil-visual ((t (:background "#dd9900" :foreground "#222200"))))))
 
 ;;;###autoload
 (when load-file-name
