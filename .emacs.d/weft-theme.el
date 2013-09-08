@@ -49,7 +49,12 @@
    ;; IDO
    `(ido-first-match ((t (:foreground ,weft-purple))))
    `(ido-only-match ((t (:foreground ,weft-green))))
-   `(ido-subdir ((t (:foreground ,weft-blue-light))))))
+   `(ido-subdir ((t (:foreground ,weft-blue-light))))
+   ;; Powerline
+   `(powerline-active1 ((t (:background "#3a3a3a" :foreground "#ffffff"))))
+   `(powerline-active2 ((t (:background "#222222" :foreground "#ffdd44"))))
+   `(powerline-inactive1 ((t (:background "#777777" :foreground "#ffffff"))))
+   `(powerline-inactive2 ((t (:background "#444444" :foreground "#ffffff"))))))
 
 ;;;###autoload
 (when load-file-name

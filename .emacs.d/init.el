@@ -51,7 +51,7 @@
 
 ;; Custom mode-line
 (require 'powerline)
-(powerline-center-evil-theme)
+(powerline-default-theme)
 
 ;; Clojure mode
 (require 'clojure-mode)
