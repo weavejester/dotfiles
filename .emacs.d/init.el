@@ -16,7 +16,7 @@
     clojure-mode clojure-test-mode clojure-project-mode
     nrepl nrepl-ritz ac-nrepl
     smartparens rainbow-mode powerline
-    markdown-mode yaml-mode)
+    markdown-mode yaml-mode glsl-mode)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
