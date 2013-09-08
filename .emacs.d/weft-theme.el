@@ -7,10 +7,11 @@
   "Weft color theme")
 
 (let ((weft-background "#212120")
-      (weft-highlight "#2d2d2c")
+      (weft-current-line "#2d2d2c")
+      (weft-highlight "#575650")
       (weft-blue-light "#89BDFF")
       (weft-gray "#595959")
-      (weft-gray-darker "#383830")
+      (weft-gray-darker "#983830")
       (weft-gray-darkest "#141411")
       (weft-gray-lightest "#595959")
       (weft-gray-light "#E6E6E6")
@@ -27,10 +28,10 @@
    ;; Frame
    `(default ((t (:foreground ,weft-yellow-light :background ,weft-background))))
    `(cursor ((t (:foreground ,weft-magenta))))
-   `(hl-line ((t (:background ,weft-highlight))))
+   `(hl-line ((t (:background ,weft-current-line))))
+   `(region ((t (:background ,weft-highlight))))
    `(minibuffer-prompt ((t (:foreground ,weft-yellow-dark))))
    `(modeline ((t (:background ,weft-gray-lightest :foreground ,weft-gray-light))))
-   `(region ((t (:background ,weft-gray-darker))))
    `(show-paren-match-face ((t (:background ,weft-gray-lightest))))
    ;; Main
    `(font-lock-builtin-face ((t (:foreground ,weft-green))))
