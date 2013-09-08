@@ -49,11 +49,7 @@
    ;; IDO
    `(ido-first-match ((t (:foreground ,weft-purple))))
    `(ido-only-match ((t (:foreground ,weft-green))))
-   `(ido-subdir ((t (:foreground ,weft-blue-light))))
-   ;; Whitespace
-   `(whitespace-space ((t (:foreground ,weft-gray))))
-   ;; Yasnippet
-   `(yas/field-highlight-face ((t (:background ,weft-gray-darker))))))
+   `(ido-subdir ((t (:foreground ,weft-blue-light))))))
 
 ;;;###autoload
 (when load-file-name
