@@ -1,8 +1,9 @@
 ;; Initiate package management with Marmalade repository
 (require 'package)
-(add-to-list
- 'package-archives
- '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+  '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
 ;; Install standard packages if not already installed
@@ -14,7 +15,7 @@
     undo-tree smart-tab evil evil-leader
     clojure-mode clojure-test-mode clojure-project-mode
     nrepl nrepl-ritz ac-nrepl
-    smartparens rainbow-mode
+    smartparens rainbow-mode powerline
     markdown-mode yaml-mode)
   "A list of packages to ensure are installed at launch.")
 
@@ -49,7 +50,8 @@
 (setq scroll-step 1)                                ; keyboard scroll one line at a time
 
 ;; Custom mode-line
-(require 'mode-line)
+(require 'powerline)
+(powerline-center-evil-theme)
 
 ;; Clojure mode
 (require 'clojure-mode)
