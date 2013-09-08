@@ -51,7 +51,8 @@
 
 ;; Custom mode-line
 (require 'powerline)
-(powerline-default-theme)
+(require 'weft-powerline)
+(powerline-weft-theme)
 
 ;; Clojure mode
 (require 'clojure-mode)

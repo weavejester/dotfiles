@@ -54,7 +54,10 @@
    `(powerline-active1 ((t (:background "#3a3a3a" :foreground "#ffffff"))))
    `(powerline-active2 ((t (:background "#222222" :foreground "#ffdd44"))))
    `(powerline-inactive1 ((t (:background "#777777" :foreground "#ffffff"))))
-   `(powerline-inactive2 ((t (:background "#444444" :foreground "#ffffff"))))))
+   `(powerline-inactive2 ((t (:background "#444444" :foreground "#ffffff"))))
+   `(powerline-evil-normal ((t (:background "#990000" :foreground "#ffffff"))))
+   `(powerline-evil-insert ((t (:background "#009900" :foreground "#ffffff"))))
+   `(powerline-evil-visual ((t (:background "#009999" :foreground "#ffffff"))))))
 
 ;;;###autoload
 (when load-file-name
