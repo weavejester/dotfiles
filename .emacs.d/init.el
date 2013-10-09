@@ -12,7 +12,7 @@
 
 (defvar my-packages
   '(starter-kit starter-kit-bindings starter-kit-lisp
-    undo-tree smart-tab evil evil-leader
+    undo-tree smart-tab evil evil-leader surround
     clojure-mode clojure-test-mode clojure-project-mode
     nrepl nrepl-ritz ac-nrepl
     smartparens rainbow-mode powerline
@@ -143,6 +143,10 @@
 
 ;; Evil smart-parens
 (require 'evil-sp)
+
+;; Evil surround
+(require 'surround)
+(global-surround-mode 1)
 
 ;; See: https://bitbucket.org/lyro/evil/issue/113
 (ido-ubiquitous-disable-in evil-ex)
