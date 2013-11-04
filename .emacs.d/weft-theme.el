@@ -9,6 +9,7 @@
 (let ((weft-background "#212120")
       (weft-current-line "#2d2d2c")
       (weft-highlight "#575650")
+      (weft-comment "#777777")
       (weft-blue-light "#89BDFF")
       (weft-gray "#595959")
       (weft-gray-darker "#983830")
@@ -44,6 +45,13 @@
    `(font-lock-type-face ((t (:foreground ,weft-blue-light))))
    `(font-lock-variable-name-face ((t (:foreground ,weft-magenta))))
    `(font-lock-warning-face ((t (:bold t :foreground ,weft-purple-light))))
+   ;; Org-Mode
+   `(org-block ((t (:foreground ,weft-comment))))
+   `(org-block-begin-line ((t (:foreground ,weft-comment))))
+   `(org-ellipsis ((t (:foreground ,weft-comment))))
+   `(org-level-1 ((t (:foreground ,weft-green))))
+   `(org-level-2 ((t (:foreground ,weft-magenta))))
+   `(org-level-3 ((t (:foreground ,weft-blue-light))))
    ;; CUA
    `(cua-rectangle ((t (:background ,weft-gray-darkest))))
    ;; IDO
