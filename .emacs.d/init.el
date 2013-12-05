@@ -11,8 +11,8 @@
 (defvar my-packages
   '(starter-kit starter-kit-bindings starter-kit-lisp
     undo-tree smart-tab evil evil-leader surround
-    clojure-mode clojure-test-mode clojure-project-mode
-    nrepl nrepl-ritz ac-nrepl
+    clojure-mode clojure-test-mode
+    cider ac-nrepl
     smartparens rainbow-mode powerline
     markdown-mode yaml-mode glsl-mode)
   "A list of packages to ensure are installed at launch.")
@@ -100,23 +100,23 @@
   (extend-freeze 2)
   (extend-thaw 1))
 
-;; nREPL setup
-(require 'nrepl)
+;; Cider setup
+(require 'cider)
 
-(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-repl-mode-hook 'subword-mode)
+
 (setq nrepl-hide-special-buffers t)
-(setq nrepl-popup-stacktraces-in-repl t)
-(setq nrepl-history-file "~/.emacs.d/nrepl-history")
+(setq cider-popup-stacktraces-in-repl t)
+(setq cider-repl-history-file "~/.emacs.d/nrepl-history")
  
-(add-hook 'nrepl-mode-hook 'subword-mode)
 
 ;; Auto complete
 (require 'auto-complete-config)
 (ac-config-default)
 
 (require 'ac-nrepl)
-(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(add-hook 'cider-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete" '(add-to-list 'ac-modes 'nrepl-mode))
 
 ;; Custom shortcuts
@@ -127,9 +127,9 @@
 (defun toggle-nrepl-buffer ()
   "Toggle the nREPL REPL on and off"
   (interactive)
-  (if (string= (buffer-name (current-buffer)) "*nrepl*")
+  (if (string= (buffer-name (current-buffer)) "*cider*")
     (delete-window)
-    (nrepl-switch-to-repl-buffer nil)))
+    (cider-switch-to-repl-buffer nil)))
 
 (global-set-key (kbd "s-r") 'toggle-nrepl-buffer)
 
