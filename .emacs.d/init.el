@@ -1,25 +1,6 @@
-;; Initiate package management with Marmalade repository
-(require 'package)
-(add-to-list 'package-archives
-  '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-
-;; Install standard packages if not already installed
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
-(defvar my-packages
-  '(starter-kit starter-kit-bindings starter-kit-lisp
-    undo-tree smart-tab evil evil-leader surround
-    clojure-mode clojure-test-mode
-    cider ac-nrepl
-    smartparens rainbow-mode powerline
-    markdown-mode yaml-mode glsl-mode)
-  "A list of packages to ensure are installed at launch.")
-
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
+;; Initialize Cask
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
 
 ;; Theme
 (load-theme 'weft t)

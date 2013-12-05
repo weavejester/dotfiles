@@ -19,6 +19,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export PATH=$PATH:$HOME/.oh-my-zsh/bin:$HOME/bin
 export PATH=$PATH:/usr/local/share/npm/bin
+export PATH=$PATH:$HOME/.cask/bin
 
 # Turn off stupid ZSH auto-correct
 unsetopt correct_all
