@@ -147,7 +147,7 @@
 (global-surround-mode 1)
 
 ;; See: https://bitbucket.org/lyro/evil/issue/113
-(ido-ubiquitous-disable-in evil-ex)
+;; (ido-ubiquitous-disable-in evil-ex)
 
 ;; Org mode
 (require 'evil-org)
