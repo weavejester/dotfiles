@@ -57,8 +57,8 @@
 (add-to-list 'auto-mode-alist '("\\.edn\\'" . clojure-mode))
 
 ;; Smartparens (an alternative to paredit)
-(require 'smartparens-config)
-(smartparens-global-mode t)
+;(require 'smartparens-config)
+;(smartparens-global-mode t)
 
 (define-key sp-keymap (kbd "C-<right>") 'sp-forward-slurp-sexp)
 (define-key sp-keymap (kbd "C-<left>") 'sp-forward-barf-sexp)
