@@ -55,7 +55,25 @@
   :config
   (progn
     (setq evil-cross-lines t)
-    (setq evil-move-cursor-back nil)))
+    (setq evil-move-cursor-back nil)
+
+    (evil-define-motion evil-forward-sexp (count)
+      (paredit-forward count))
+
+    (evil-define-motion evil-backward-sexp (count)
+      (paredit-backward count))
+
+    (evil-define-motion evil-up-sexp (count)
+      (paredit-up count))
+
+    (evil-define-motion evil-backward-up-sexp (count)
+      (paredit-backward-up count))
+
+    (evil-define-motion evil-down-sexp (count)
+      (paredit-down count))
+
+    (define-key evil-motion-state-map "e" 'evil-forward-sexp)
+    (define-key evil-motion-state-map "E" 'evil-backward-sexp)))
 
 
 ;;;; Modes ;;;;
