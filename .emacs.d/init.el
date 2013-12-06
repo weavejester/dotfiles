@@ -37,13 +37,6 @@
 (require 'clojure-mode)
 (add-to-list 'auto-mode-alist '("\\.edn\\'" . clojure-mode))
 
-;; Smartparens (an alternative to paredit)
-;(require 'smartparens-config)
-;(smartparens-global-mode t)
-
-(define-key sp-keymap (kbd "C-<right>") 'sp-forward-slurp-sexp)
-(define-key sp-keymap (kbd "C-<left>") 'sp-forward-barf-sexp)
-
 ;; Remove starter-kit hooks for paredit
 (dolist (mode '(scheme emacs-lisp lisp clojure))
   (remove-hook (intern (concat (symbol-name mode) "-mode-hook"))
@@ -119,9 +112,6 @@
 (evil-mode 1)
 (setq evil-cross-lines t)
 (setq evil-move-cursor-back nil)
-
-;; Evil smart-parens
-(require 'evil-sp)
 
 ;; Evil surround
 (require 'surround)
