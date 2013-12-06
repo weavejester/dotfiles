@@ -8,13 +8,15 @@
 ;; Custom load path outside of elpa
 (add-to-list 'load-path "~/.emacs.d")
 
-;; File modes
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(require 'use-package)
 
-(require 'markdown-mode)
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+;; File modes
+(use-package yaml-mode
+  :mode ("\\.yml$" . yaml-mode))
+
+(use-package markdown-mode
+  :mode (("\\.markdown$" . markdown-mode)
+         ("\\.md$" . markdown-mode)))
 
 ;; Disable annoying visible bell on OSX
 (setq visible-bell nil)
