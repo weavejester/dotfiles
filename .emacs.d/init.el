@@ -64,10 +64,20 @@
     (setq evil-move-cursor-back nil)
 
     (evil-define-motion evil-forward-sexp (count)
-      (paredit-forward count))
+      (if (paredit-in-string-p)
+          (evil-forward-word-end count)
+          (paredit-forward count)))
 
     (evil-define-motion evil-backward-sexp (count)
-      (paredit-backward count))
+      (if (paredit-in-string-p)
+          (evil-backward-word-begin)
+          (paredit-backward count)))
+
+    (evil-define-motion evil-forward-sexp-word (count)
+      (if (paredit-in-string-p)
+          (evil-forward-word-begin count)
+          (progn (paredit-forward count)
+                 (skip-chars-forward "[:space:]"))))
 
     (evil-define-motion evil-up-sexp (count)
       (paredit-up count))
@@ -78,8 +88,9 @@
     (evil-define-motion evil-down-sexp (count)
       (paredit-down count))
 
+    (define-key evil-motion-state-map "w" 'evil-forward-sexp-word)
     (define-key evil-motion-state-map "e" 'evil-forward-sexp)
-    (define-key evil-motion-state-map "E" 'evil-backward-sexp)))
+    (define-key evil-motion-state-map "b" 'evil-backward-sexp)))
 
 
 ;;;; Modes ;;;;
