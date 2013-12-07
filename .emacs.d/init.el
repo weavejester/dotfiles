@@ -50,8 +50,14 @@
   :init
   (progn
     (evil-mode 1)
+    (use-package evil-paredit
+      :init (add-hook 'paredit-mode-hook 'evil-paredit-mode))
     (use-package surround
-      :init (global-surround-mode 1)))
+      :init
+      (progn
+        (global-surround-mode 1)
+        (add-to-list 'surround-operator-alist '(evil-paredit-change . change))
+        (add-to-list 'surround-operator-alist '(evil-paredit-delete . delete)))))
   :config
   (progn
     (setq evil-cross-lines t)
