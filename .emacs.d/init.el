@@ -79,15 +79,6 @@
           (progn (paredit-forward count)
                  (skip-chars-forward "[:space:]"))))
 
-    (evil-define-motion evil-up-sexp (count)
-      (paredit-up count))
-
-    (evil-define-motion evil-backward-up-sexp (count)
-      (paredit-backward-up count))
-
-    (evil-define-motion evil-down-sexp (count)
-      (paredit-down count))
-
     (define-key evil-motion-state-map "w" 'evil-forward-sexp-word)
     (define-key evil-motion-state-map "e" 'evil-forward-sexp)
     (define-key evil-motion-state-map "b" 'evil-backward-sexp)))
