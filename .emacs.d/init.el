@@ -168,7 +168,7 @@
     (defun toggle-nrepl-buffer ()
       "Toggle the nREPL REPL on and off"
       (interactive)
-      (if (string= (buffer-name (current-buffer)) "*cider*")
+      (if (string= (buffer-name (current-buffer)) "*cider-repl*")
           (delete-window)
         (cider-switch-to-repl-buffer nil)))
 
