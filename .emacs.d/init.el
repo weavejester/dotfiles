@@ -165,6 +165,9 @@
       (extend-freeze 2)
       (extend-thaw 1))
 
+    (define-clojure-indent
+      (go-loop 1))
+
     (defun toggle-nrepl-buffer ()
       "Toggle the nREPL REPL on and off"
       (interactive)
