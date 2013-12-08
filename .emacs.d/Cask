@@ -19,6 +19,7 @@
 (depends-on "evil-paredit")
 (depends-on "surround")
 (depends-on "powerline")
+(depends-on "diminish")
 (depends-on "paredit")
 (depends-on "clojure-mode")
 (depends-on "cider")

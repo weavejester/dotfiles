@@ -33,9 +33,17 @@
 (load-theme 'weft t)
 
 ;; Custom mode-line
-(require 'powerline)
-(require 'weft-powerline)
-(powerline-weft-theme)
+(use-package powerline
+  :init
+  (use-package diminish
+    :config
+    (progn
+      (eval-after-load "undo-tree" '(diminish 'undo-tree-mode))
+      (eval-after-load "simple" '(diminish 'auto-fill-function))))
+  :config
+  (progn
+    (require 'weft-powerline)
+    (powerline-weft-theme)))
 
 ;; No slow stupid flyspell. Die!
 (eval-after-load "flyspell"
