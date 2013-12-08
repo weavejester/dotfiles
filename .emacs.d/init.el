@@ -99,6 +99,9 @@
   :init (flx-ido-mode 1)
   :config (setq ido-use-faces nil))
 
+(use-package projectile
+  :init (projectile-global-mode))
+
 (use-package yaml-mode
   :mode ("\\.yml$" . yaml-mode))
 
