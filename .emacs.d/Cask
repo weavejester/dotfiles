@@ -25,3 +25,4 @@
 (depends-on "ac-nrepl")
 (depends-on "use-package")
 (depends-on "flx-ido")
+(depends-on "ack-and-a-half")
