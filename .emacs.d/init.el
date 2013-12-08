@@ -95,6 +95,10 @@
 
 ;;;; Modes ;;;;
 
+(use-package flx-ido
+  :init (flx-ido-mode 1)
+  :config (setq ido-use-faces nil))
+
 (use-package yaml-mode
   :mode ("\\.yml$" . yaml-mode))
 

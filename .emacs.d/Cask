@@ -24,3 +24,4 @@
 (depends-on "cider")
 (depends-on "ac-nrepl")
 (depends-on "use-package")
+(depends-on "flx-ido")
