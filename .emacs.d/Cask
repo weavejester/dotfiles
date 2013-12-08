@@ -25,4 +25,5 @@
 (depends-on "ac-nrepl")
 (depends-on "use-package")
 (depends-on "flx-ido")
+(depends-on "ido-vertical-mode")
 (depends-on "ack-and-a-half")

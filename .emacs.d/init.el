@@ -99,6 +99,9 @@
   :init (flx-ido-mode 1)
   :config (setq ido-use-faces nil))
 
+(use-package ido-vertical-mode
+  :init (ido-vertical-mode 1))
+
 (use-package projectile
   :init (projectile-global-mode)
   :config
