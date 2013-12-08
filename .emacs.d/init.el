@@ -15,7 +15,7 @@
 (server-start)
 
 
-;;;; Visual ;;;;
+;;;; Editor ;;;;
 
 ;; Disable annoying visible bell on OSX
 (setq visible-bell nil)
@@ -37,16 +37,31 @@
 (require 'weft-powerline)
 (powerline-weft-theme)
 
-
-;;;; Editor ;;;;
-
-;; Custom shortcuts
-(global-set-key (kbd "s-b") 'ido-switch-buffer)
-(global-set-key (kbd "s-o") 'ido-find-file)
-
 ;; No slow stupid flyspell. Die!
 (eval-after-load "flyspell"
   '(defun flyspell-mode (&optional arg)))
+
+
+;;;; Modes ;;;;
+
+(use-package ido
+  :config
+  (progn
+    (global-set-key (kbd "s-b") 'ido-switch-buffer)
+    (global-set-key (kbd "s-o") 'ido-find-file)))
+
+(use-package flx-ido
+  :init (flx-ido-mode 1)
+  :config (setq ido-use-faces nil))
+
+(use-package ido-vertical-mode
+  :init (ido-vertical-mode 1))
+
+(use-package projectile
+  :init (projectile-global-mode)
+  :config
+  (progn
+    (global-set-key (kbd "s-p") 'projectile-find-file)))
 
 (use-package evil
   :init
@@ -84,22 +99,6 @@
     (define-key evil-motion-state-map "w" 'evil-forward-sexp-word)
     (define-key evil-motion-state-map "e" 'evil-forward-sexp)
     (define-key evil-motion-state-map "b" 'evil-backward-sexp)))
-
-
-;;;; Modes ;;;;
-
-(use-package flx-ido
-  :init (flx-ido-mode 1)
-  :config (setq ido-use-faces nil))
-
-(use-package ido-vertical-mode
-  :init (ido-vertical-mode 1))
-
-(use-package projectile
-  :init (projectile-global-mode)
-  :config
-  (progn
-    (evil-ex-define-cmd "pf[iles]" 'projectile-find-file)))
 
 (use-package yaml-mode
   :mode ("\\.yml$" . yaml-mode))
