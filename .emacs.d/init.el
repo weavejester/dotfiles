@@ -100,7 +100,10 @@
   :config (setq ido-use-faces nil))
 
 (use-package projectile
-  :init (projectile-global-mode))
+  :init (projectile-global-mode)
+  :config
+  (progn
+    (evil-ex-define-cmd "pf[iles]" 'projectile-find-file)))
 
 (use-package yaml-mode
   :mode ("\\.yml$" . yaml-mode))
