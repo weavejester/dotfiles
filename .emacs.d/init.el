@@ -180,6 +180,9 @@
     (define-clojure-indent
       (go-loop 1))
 
+    (define-clojure-indent
+      (assoc-some 1))
+
     (defun toggle-nrepl-buffer ()
       "Toggle the nREPL REPL on and off"
       (interactive)
