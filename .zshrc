@@ -51,3 +51,6 @@ function mark_complete {
 }
 compctl -K mark_complete jump
 compctl -K mark_complete unmark
+
+# added by travis gem
+[ -f /Users/jim/.travis/travis.sh ] && source /Users/jim/.travis/travis.sh
