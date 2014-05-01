@@ -190,4 +190,25 @@
           (delete-window)
         (cider-switch-to-repl-buffer nil)))
 
-    (global-set-key (kbd "s-r") 'toggle-nrepl-buffer)))
+    (global-set-key (kbd "s-r") 'toggle-nrepl-buffer)
+
+    (defun nrepl-execute-in-current-repl (expr)
+      (if (not (cider-connected-p))
+        (message "No active Cider connection.")
+        (progn
+          (set-buffer (cider-find-or-create-repl-buffer))
+          (goto-char (point-max))
+          (insert expr)
+          (cider-repl-return))))
+
+    (defun nrepl-refresh ()
+      (interactive)
+      (nrepl-execute-in-current-repl
+       "(clojure.tools.namespace.repl/refresh)"))
+
+    (defun nrepl-reset ()
+      (interactive)
+      (nrepl-execute-in-current-repl
+       "(user/reset)"))
+
+    (global-set-key (kbd "C-c r") 'nrepl-reset)))
