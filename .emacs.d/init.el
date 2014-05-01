@@ -67,6 +67,9 @@
 (use-package ido-vertical-mode
   :init (ido-vertical-mode 1))
 
+(use-package auto-complete-config
+  :config (ac-config-default))
+
 (use-package projectile
   :init (projectile-global-mode)
   :config
@@ -137,9 +140,6 @@
         (setq cider-repl-history-file "~/.emacs.d/nrepl-history"))))
   :config
   (progn
-    (use-package auto-complete-config
-      :init (ac-config-default))
-
     (use-package ac-nrepl
       :init
       (progn
