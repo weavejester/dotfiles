@@ -39,7 +39,9 @@
     :config
     (progn
       (eval-after-load "undo-tree" '(diminish 'undo-tree-mode))
-      (eval-after-load "simple" '(diminish 'auto-fill-function))))
+      (eval-after-load "simple" '(diminish 'auto-fill-function))
+      (eval-after-load "eldoc" '(diminish 'eldoc-mode))
+      (eval-after-load "projectile" '(diminish 'projectile-mode))))
   :config
   (progn
     (require 'weft-powerline)
