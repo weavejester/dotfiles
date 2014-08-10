@@ -93,8 +93,6 @@
     (setq evil-cross-lines t)
     (setq evil-move-cursor-back nil)
 
-    (define-key evil-normal-state-map ";" 'smex)
-
     (evil-define-motion evil-forward-sexp (count)
       (if (paredit-in-string-p)
           (evil-forward-word-end count)
