@@ -138,7 +138,10 @@
       (progn
         (setq nrepl-hide-special-buffers t)
         (setq cider-popup-stacktraces-in-repl t)
-        (setq cider-repl-history-file "~/.emacs.d/nrepl-history"))))
+        (setq cider-repl-history-file "~/.emacs.d/nrepl-history")
+        (setq cider-repl-pop-to-buffer-on-connect nil)
+        (setq cider-auto-select-error-buffer nil)
+        (setq cider-prompt-save-file-on-load nil))))
   :config
   (progn
     (use-package ac-nrepl
