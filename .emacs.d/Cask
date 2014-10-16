@@ -17,7 +17,7 @@
 (depends-on "glsl-mode")
 (depends-on "evil")
 (depends-on "evil-paredit")
-(depends-on "surround")
+(depends-on "evil-surround")
 (depends-on "powerline")
 (depends-on "diminish")
 (depends-on "paredit")
