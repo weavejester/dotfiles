@@ -17,6 +17,12 @@
 
 ;;;; Editor ;;;;
 
+(use-package better-defaults)
+(setq inhibit-startup-message t)
+
+(blink-cursor-mode 0)
+(menu-bar-mode 1)
+
 ;; Disable annoying visible bell on OSX
 (setq visible-bell nil)
 
