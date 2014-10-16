@@ -14,12 +14,11 @@
 
 (server-start)
 
+(use-package better-defaults)
 
 ;;;; Editor ;;;;
 
-(use-package better-defaults)
 (setq inhibit-startup-message t)
-
 (blink-cursor-mode 0)
 (menu-bar-mode 1)
 
@@ -28,12 +27,6 @@
 
 ;; Actually, why not disable the annoying audible bell as well
 (setq ring-bell-function 'ignore)
-
-;; Scroll one line at a time (less "jumpy" than defaults)
-;(setq mouse-wheel-scroll-amount '(2 ((shift) . 1))) ; one line at a time
-;(setq mouse-wheel-progressive-speed nil)            ; don't accelerate scrolling
-;(setq mouse-wheel-follow-mouse 't)                  ; scroll window under mouse
-;(setq scroll-step 1)                                ; keyboard scroll one line at a time
 
 ;; Mac Emacs settings
 (setq mac-option-modifier 'meta)
