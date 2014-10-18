@@ -207,20 +207,10 @@
           (delete-window)
         (cider-switch-to-relevant-repl-buffer)))
 
-    (defun nrepl-execute-in-current-repl (expr)
-      (if (not (cider-connected-p))
-        (message "No active Cider connection.")
-        (progn
-          (set-buffer (cider-find-or-create-repl-buffer))
-          (goto-char (point-max))
-          (insert expr)
-          (cider-repl-return))))
-
-    (defun nrepl-reset ()
+    (defun cider-project-reset ()
       (interactive)
-      (nrepl-execute-in-current-repl
-       "(user/reset)"))
+      (cider-interactive-eval "(user/reset)"))
 
-    (global-set-key (kbd "C-c r") 'nrepl-reset)
     (global-set-key (kbd "s-r") 'toggle-nrepl-buffer)
-    (evil-leader/set-key "r" 'toggle-nrepl-buffer)))
+    (evil-leader/set-key "r" 'toggle-nrepl-buffer)
+    (evil-leader/set-key "R" 'cider-project-reset)))
