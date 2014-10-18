@@ -70,8 +70,17 @@
 (use-package ido-vertical-mode
   :init (ido-vertical-mode 1))
 
-(use-package auto-complete-config
-  :config (ac-config-default))
+(use-package company
+  :init (global-company-mode)
+  :config
+  (progn
+    (defun indent-or-complete ()
+      (interactive)
+      (if (looking-at "\\_>")
+          (company-complete-common)
+        (indent-according-to-mode)))
+
+    (global-set-key "\t" 'indent-or-complete)))
 
 (use-package projectile
   :init (projectile-global-mode)
@@ -144,12 +153,6 @@
         (setq cider-prompt-save-file-on-load nil))))
   :config
   (progn
-    (use-package ac-nrepl
-      :init
-      (progn
-        (add-hook 'cider-mode-hook 'ac-nrepl-setup)
-        (eval-after-load "auto-complete" '(add-to-list 'ac-modes 'nrepl-mode))))
-
     (define-clojure-indent
       (defroutes 'defun)
       (GET 2)

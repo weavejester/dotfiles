@@ -65,7 +65,15 @@
    `(powerline-inactive2 ((t (:background "#444444" :foreground "#ffffff"))))
    `(powerline-evil-normal ((t (:background "#559900" :foreground "#002200"))))
    `(powerline-evil-insert ((t (:background "#dd3311" :foreground "#220000"))))
-   `(powerline-evil-visual ((t (:background "#dd9900" :foreground "#222200"))))))
+   `(powerline-evil-visual ((t (:background "#dd9900" :foreground "#222200"))))
+   ;; Company
+   `(company-preview ((t (:background "#ffff99" :foreground "#000000"))))
+   `(company-tooltip ((t (:background "#aaaaaa" :foreground "#000000"))))
+   `(company-scrollbar-bg ((t (:background "#999999"))))
+   `(company-scrollbar-fg ((t (:background "#555555"))))
+   `(company-tooltip-selection ((t (:background "#eeeeee" :foreground "#000000"))))
+   `(company-tooltip-common    ((t (:background "#cccccc" :foreground "#000000"))))))
+
 
 ;;;###autoload
 (when load-file-name
