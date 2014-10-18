@@ -61,19 +61,6 @@
 
 ;;;; Modes ;;;;
 
-(use-package ido
-  :config
-  (progn
-    (global-set-key (kbd "s-b") 'ido-switch-buffer)
-    (global-set-key (kbd "s-o") 'ido-find-file)))
-
-(use-package flx-ido
-  :init (flx-ido-mode 1)
-  :config (setq ido-use-faces nil))
-
-(use-package ido-vertical-mode
-  :init (ido-vertical-mode 1))
-
 (use-package company
   :init (global-company-mode)
   :config
@@ -86,22 +73,19 @@
 
     (global-set-key "\t" 'indent-or-complete)))
 
-(use-package projectile
-  :init (projectile-global-mode)
-  :config
-  (progn
-    (global-set-key (kbd "s-p") 'projectile-find-file)))
-
 (use-package evil
   :init
   (progn
     (evil-mode 1)
+    (use-package evil-leader
+      :init (global-evil-leader-mode)
+      :config (evil-leader/set-leader ","))
     (use-package evil-paredit
       :init (add-hook 'paredit-mode-hook 'evil-paredit-mode))
     (use-package surround
-      :init
+      :init (global-surround-mode 1)
+      :config
       (progn
-        (global-surround-mode 1)
         (add-to-list 'surround-operator-alist '(evil-paredit-change . change))
         (add-to-list 'surround-operator-alist '(evil-paredit-delete . delete)))))
   :config
@@ -128,6 +112,28 @@
     (define-key evil-motion-state-map "w" 'evil-forward-sexp-word)
     (define-key evil-motion-state-map "e" 'evil-forward-sexp)
     (define-key evil-motion-state-map "b" 'evil-backward-sexp)))
+
+(use-package ido
+  :config
+  (progn
+    (global-set-key (kbd "s-b") 'ido-switch-buffer)
+    (global-set-key (kbd "s-o") 'ido-find-file)
+    (evil-leader/set-key "b" 'ido-switch-buffer)
+    (evil-leader/set-key "o" 'ido-find-file)))
+
+(use-package flx-ido
+  :init (flx-ido-mode 1)
+  :config (setq ido-use-faces nil))
+
+(use-package ido-vertical-mode
+  :init (ido-vertical-mode 1))
+
+(use-package projectile
+  :init (projectile-global-mode)
+  :config
+  (progn
+    (global-set-key (kbd "s-p") 'projectile-find-file)
+    (evil-leader/set-key "p" 'projectile-find-file)))
 
 (use-package yaml-mode
   :mode ("\\.yml$" . yaml-mode))
@@ -201,8 +207,6 @@
           (delete-window)
         (cider-switch-to-relevant-repl-buffer)))
 
-    (global-set-key (kbd "s-r") 'toggle-nrepl-buffer)
-
     (defun nrepl-execute-in-current-repl (expr)
       (if (not (cider-connected-p))
         (message "No active Cider connection.")
@@ -212,14 +216,11 @@
           (insert expr)
           (cider-repl-return))))
 
-    (defun nrepl-refresh ()
-      (interactive)
-      (nrepl-execute-in-current-repl
-       "(clojure.tools.namespace.repl/refresh)"))
-
     (defun nrepl-reset ()
       (interactive)
       (nrepl-execute-in-current-repl
        "(user/reset)"))
 
-    (global-set-key (kbd "C-c r") 'nrepl-reset)))
+    (global-set-key (kbd "C-c r") 'nrepl-reset)
+    (global-set-key (kbd "s-r") 'toggle-nrepl-buffer)
+    (evil-leader/set-key "r" 'toggle-nrepl-buffer)))

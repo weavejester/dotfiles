@@ -17,6 +17,7 @@
 (depends-on "markdown-mode")
 (depends-on "glsl-mode")
 (depends-on "evil")
+(depends-on "evil-leader")
 (depends-on "evil-paredit")
 (depends-on "evil-surround")
 (depends-on "powerline")
