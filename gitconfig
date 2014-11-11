@@ -1,0 +1,15 @@
+[alias]
+  st = status
+  dc = diff --cached
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit
+  release = "!f() { git commit -am \"Release $1\"; git tag -a $1 -m \"Version $1\"; }; f"
+[color]
+  ui = true
+[user]
+  name = James Reeves
+  email = jreeves@weavejester.com
+[core]
+  excludesfile = ~/.gitignore_global
+  autocrlf = input
+[push]
+  default = current
