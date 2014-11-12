@@ -89,12 +89,12 @@
       :config (evil-leader/set-leader ","))
     (use-package evil-paredit
       :init (add-hook 'paredit-mode-hook 'evil-paredit-mode))
-    (use-package surround
-      :init (global-surround-mode 1)
+    (use-package evil-surround
+      :init (global-evil-surround-mode 1)
       :config
       (progn
-        (add-to-list 'surround-operator-alist '(evil-paredit-change . change))
-        (add-to-list 'surround-operator-alist '(evil-paredit-delete . delete)))))
+        (add-to-list 'evil-surround-operator-alist '(evil-paredit-change . change))
+        (add-to-list 'evil-surround-operator-alist '(evil-paredit-delete . delete)))))
   :config
   (progn
     (setq evil-cross-lines t)
