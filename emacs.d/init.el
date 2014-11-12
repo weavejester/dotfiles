@@ -62,6 +62,12 @@
 
 ;;;; Modes ;;;;
 
+(use-package paredit
+  :init
+  (progn
+    (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+    (add-hook 'clojure-mode-hook 'paredit-mode)))
+
 (use-package company
   :init (global-company-mode)
   :config
