@@ -19,6 +19,10 @@
 
 ;;;; Editor ;;;;
 
+(let ((font "Monaco:pixelsize=12"))
+  (set-face-attribute 'default nil :font font)
+  (set-frame-font font nil t))
+
 (setq inhibit-startup-message t)
 (blink-cursor-mode 0)
 (menu-bar-mode 1)
