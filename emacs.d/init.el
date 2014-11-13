@@ -66,6 +66,9 @@
 
 ;;;; Modes ;;;;
 
+(add-hook 'emacs-lisp-mode-hook 'prettify-symbols-mode)
+(add-hook 'clojure-mode-hook 'prettify-symbols-mode)
+
 (use-package paredit
   :init
   (progn
@@ -210,6 +213,12 @@
 
     (define-clojure-indent
       (assoc-some 1))
+
+    (setq clojure--prettify-symbols-alist
+          '(("fn"  . ?λ)
+            ("comp" . ?∘)
+            ("<=" . ?≤)
+            (">=" . ?≥)))
 
     (defun toggle-nrepl-buffer ()
       "Toggle the nREPL REPL on and off"
