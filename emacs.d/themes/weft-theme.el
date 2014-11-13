@@ -32,7 +32,7 @@
    `(hl-line ((t (:background ,weft-current-line))))
    `(region ((t (:background ,weft-highlight))))
    `(minibuffer-prompt ((t (:foreground ,weft-yellow-dark))))
-   `(modeline ((t (:background ,weft-gray-lightest :foreground ,weft-gray-light))))
+   `(mode-line ((t (:background ,weft-gray-lightest :foreground ,weft-gray-light))))
    `(show-paren-match-face ((t (:background ,weft-gray-lightest))))
    ;; Main
    `(font-lock-builtin-face ((t (:foreground ,weft-green))))
@@ -73,7 +73,6 @@
    `(company-scrollbar-fg ((t (:background "#555555"))))
    `(company-tooltip-selection ((t (:background "#eeeeee" :foreground "#000000"))))
    `(company-tooltip-common    ((t (:background "#cccccc" :foreground "#000000"))))))
-
 
 ;;;###autoload
 (when load-file-name
