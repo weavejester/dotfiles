@@ -1,11 +1,31 @@
 ;; Custom powerline theme
 (require 'powerline)
 
+(defface powerline-evil-base
+  '((t (:foreground "white" :inherit mode-line)))
+  "Base face for powerline evil faces."
+  :group 'powerline)
+
+(defface powerline-evil-normal
+  '((t (:background "green" :inherit powerline-evil-base-face)))
+  "Powerline face for evil NORMAL state."
+  :group 'powerline)
+
+(defface powerline-evil-insert
+  '((t (:background "blue" :inherit powerline-evil-base-face)))
+  "Powerline face for evil INSERT state."
+  :group 'powerline)
+
+(defface powerline-evil-visual
+  '((t (:background "orange" :inherit powerline-evil-base-face)))
+  "Powerline face for evil VISUAL state."
+  :group 'powerline)
+
 (defun evil-state-face (active)
   (let ((face (intern (concat "powerline-evil-" (symbol-name evil-state)))))
-      (cond ((and active (facep face)) face)
-            (active 'powerline-active2)
-            (t 'powerline-inactive2))))
+    (cond ((and active (facep face)) face)
+          (active 'powerline-active2)
+          (t 'powerline-inactive2))))
 
 (defun evil-state-brief ()
   (replace-regexp-in-string "[<> ]" "" (eval (evil-state-property evil-state :tag))))
