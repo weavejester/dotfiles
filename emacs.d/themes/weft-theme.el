@@ -32,7 +32,8 @@
    `(hl-line ((t (:background ,weft-current-line))))
    `(region ((t (:background ,weft-highlight))))
    `(minibuffer-prompt ((t (:foreground ,weft-yellow-dark))))
-   `(mode-line ((t (:background ,weft-gray-lightest :foreground ,weft-gray-light))))
+   `(mode-line ((t (:background "#666666" :foreground "#ffffff"))))
+   `(mode-line-buffer-id ((t (:foreground "#ffffff"))))
    `(show-paren-match-face ((t (:background ,weft-gray-lightest))))
    ;; Main
    `(font-lock-builtin-face ((t (:foreground ,weft-green))))
@@ -59,8 +60,8 @@
    `(ido-only-match ((t (:foreground ,weft-green))))
    `(ido-subdir ((t (:foreground ,weft-blue-light))))
    ;; Powerline
-   `(powerline-active1 ((t (:background "#3a3a3a" :foreground "#eeeeee"))))
-   `(powerline-active2 ((t (:background "#222222" :foreground "#999999"))))
+   `(powerline-active1 ((t (:background "#444444" :foreground "#ffffff"))))
+   `(powerline-active2 ((t (:background "#333333" :foreground "#ffffff"))))
    `(powerline-inactive1 ((t (:background "#666666" :foreground "#ffffff"))))
    `(powerline-inactive2 ((t (:background "#444444" :foreground "#ffffff"))))
    `(powerline-evil-normal ((t (:background "#559900" :foreground "#002200"))))
