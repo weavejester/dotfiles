@@ -13,6 +13,7 @@
 (depends-on "smex")
 (depends-on "wrap-region")
 (depends-on "yasnippet")
+(depends-on "clojure-snippets")
 (depends-on "yaml-mode")
 (depends-on "markdown-mode")
 (depends-on "glsl-mode")
