@@ -175,6 +175,7 @@
         (setq cider-popup-stacktraces-in-repl t)
         (setq cider-repl-history-file "~/.emacs.d/nrepl-history")
         (setq cider-repl-pop-to-buffer-on-connect nil)
+        (setq cider-repl-use-clojure-font-lock t)
         (setq cider-auto-select-error-buffer nil)
         (setq cider-prompt-save-file-on-load nil))))
   :config
