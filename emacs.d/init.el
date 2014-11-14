@@ -37,6 +37,11 @@
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'super)
 
+;; Buffer settings
+(setq default-indicate-empty-lines t)
+(setq require-final-newline t)
+(setq show-trailing-whitespace t)
+
 ;; Color theme
 (load-theme 'weft t)
 
