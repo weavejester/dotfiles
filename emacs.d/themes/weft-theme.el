@@ -46,6 +46,10 @@
    `(font-lock-type-face ((t (:foreground ,weft-blue-light))))
    `(font-lock-variable-name-face ((t (:foreground ,weft-magenta))))
    `(font-lock-warning-face ((t (:bold t :foreground ,weft-purple-light))))
+   ;; Parenface
+   `(parenface-paren-face ((t (:foreground "#999999"))))
+   `(parenface-bracket-face ((t (:foreground "#cccccc"))))
+   `(parenface-curly-face ((t (:foreground "#cccccc"))))
    ;; Org-Mode
    `(org-block ((t (:foreground ,weft-comment))))
    `(org-block-begin-line ((t (:foreground ,weft-comment))))
