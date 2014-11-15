@@ -249,3 +249,11 @@
     (global-set-key (kbd "s-r") 'toggle-nrepl-buffer)
     (evil-leader/set-key "r" 'toggle-nrepl-buffer)
     (evil-leader/set-key "R" 'cider-project-reset)))
+
+(use-package clj-refactor
+  :init
+  (add-hook 'clojure-mode-hook (lambda () (clj-refactor-mode 1)))
+  :config
+  (progn
+    (evil-leader/set-key "tf" 'cljr-thread-first-all)
+    (evil-leader/set-key "tl" 'cljr-thread-last-all)))
