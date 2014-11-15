@@ -256,4 +256,7 @@
   :config
   (progn
     (evil-leader/set-key "tf" 'cljr-thread-first-all)
-    (evil-leader/set-key "tl" 'cljr-thread-last-all)))
+    (evil-leader/set-key "tl" 'cljr-thread-last-all)
+    (evil-leader/set-key "cc" 'cljr-cycle-coll)
+    (evil-leader/set-key "cp" 'cljr-cycle-privacy)
+    (evil-leader/set-key "cs" 'clojure-toggle-keyword-string)))
