@@ -27,6 +27,7 @@
 (depends-on "clojure-mode")
 (depends-on "parenface")
 (depends-on "cider")
+(depends-on "slamhound")
 (depends-on "clj-refactor")
 (depends-on "company")
 (depends-on "use-package")
