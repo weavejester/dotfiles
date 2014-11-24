@@ -132,7 +132,14 @@
 
     (define-key evil-motion-state-map "w" 'evil-forward-sexp-word)
     (define-key evil-motion-state-map "e" 'evil-forward-sexp)
-    (define-key evil-motion-state-map "b" 'evil-backward-sexp)))
+    (define-key evil-motion-state-map "b" 'evil-backward-sexp)
+
+    (define-key evil-normal-state-map ">" nil)
+    (define-key evil-normal-state-map "<" nil)
+    (define-key evil-normal-state-map ">)" 'paredit-forward-slurp-sexp)
+    (define-key evil-normal-state-map "<(" 'paredit-backward-slurp-sexp)
+    (define-key evil-normal-state-map "<)" 'paredit-forward-barf-sexp)
+    (define-key evil-normal-state-map ">(" 'paredit-backward-barf-sexp)))
 
 (use-package ido
   :config
