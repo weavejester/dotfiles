@@ -258,6 +258,10 @@
     (evil-leader/set-key "r" 'toggle-nrepl-buffer)
     (evil-leader/set-key "R" 'cider-project-reset)))
 
+(use-package typed-clojure-mode
+  :init
+  (add-hook 'clojure-mode-hook 'typed-clojure-mode))
+
 (use-package clj-refactor
   :init
   (add-hook 'clojure-mode-hook (lambda () (clj-refactor-mode 1)))
