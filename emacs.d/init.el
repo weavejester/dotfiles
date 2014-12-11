@@ -58,7 +58,8 @@
       (eval-after-load "projectile" '(diminish 'projectile-mode " prj"))
       (eval-after-load "paredit" '(diminish 'paredit-mode " par"))
       (eval-after-load "company" '(diminish 'company-mode " cmp"))
-      (eval-after-load "cider" '(diminish 'cider-mode " cid"))))
+      (eval-after-load "cider" '(diminish 'cider-mode " cid"))
+      (eval-after-load "typed-clojure-mode" '(diminish 'typed-clojure-mode " typ"))))
   :config
   (progn
     (require 'weft-powerline)
