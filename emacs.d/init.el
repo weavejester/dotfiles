@@ -242,7 +242,8 @@
             ("comp" . ?∘)
             ("not=" . ?≠)
             ("<=" . ?≤)
-            (">=" . ?≥)))
+            (">=" . ?≥)
+            ("identical?" . ?≡)))
 
     (defun toggle-nrepl-buffer ()
       "Toggle the nREPL REPL on and off"
