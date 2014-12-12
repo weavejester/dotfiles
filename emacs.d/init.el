@@ -109,7 +109,12 @@
     (evil-mode 1)
     (use-package evil-leader
       :init (global-evil-leader-mode)
-      :config (evil-leader/set-leader "SPC"))
+      :config
+      (progn
+        (evil-leader/set-leader "SPC")
+        (evil-leader/set-key "wc" 'delete-window)
+        (evil-leader/set-key "ws" 'split-window-below)
+        (evil-leader/set-key "ww" 'other-window)))
     (use-package evil-paredit
       :init (add-hook 'paredit-mode-hook 'evil-paredit-mode))
     (use-package evil-surround
@@ -163,10 +168,9 @@
 (use-package ido
   :config
   (progn
-    (global-set-key (kbd "s-b") 'ido-switch-buffer)
-    (global-set-key (kbd "s-o") 'ido-find-file)
-    (evil-leader/set-key "b" 'ido-switch-buffer)
-    (evil-leader/set-key "o" 'ido-find-file)))
+    (evil-leader/set-key "bs" 'ido-switch-buffer)
+    (evil-leader/set-key "bk" 'ido-kill-buffer)
+    (evil-leader/set-key "ff" 'ido-find-file)))
 
 (use-package flx-ido
   :init (flx-ido-mode 1)
@@ -179,8 +183,9 @@
   :init (projectile-global-mode)
   :config
   (progn
-    (global-set-key (kbd "s-p") 'projectile-find-file)
-    (evil-leader/set-key "p" 'projectile-find-file)))
+    (evil-leader/set-key "pf" 'projectile-find-file)
+    (evil-leader/set-key "pa" 'projectile-ag)
+    (evil-leader/set-key "pk" 'projectile-kill-buffers)))
 
 (use-package yasnippet
   :init
@@ -274,9 +279,8 @@
       (interactive)
       (cider-interactive-eval "(user/reset)"))
 
-    (global-set-key (kbd "s-r") 'toggle-nrepl-buffer)
-    (evil-leader/set-key "r" 'toggle-nrepl-buffer)
-    (evil-leader/set-key "R" 'cider-project-reset)))
+    (evil-leader/set-key "cr" 'toggle-nrepl-buffer)
+    (evil-leader/set-key "cR" 'cider-project-reset)))
 
 (use-package typed-clojure-mode
   :init
@@ -287,8 +291,8 @@
   (add-hook 'clojure-mode-hook (lambda () (clj-refactor-mode 1)))
   :config
   (progn
-    (evil-leader/set-key "tf" 'cljr-thread-first-all)
-    (evil-leader/set-key "tl" 'cljr-thread-last-all)
-    (evil-leader/set-key "cc" 'cljr-cycle-coll)
-    (evil-leader/set-key "cp" 'cljr-cycle-privacy)
-    (evil-leader/set-key "cs" 'clojure-toggle-keyword-string)))
+    (evil-leader/set-key "rtf" 'cljr-thread-first-all)
+    (evil-leader/set-key "rtl" 'cljr-thread-last-all)
+    (evil-leader/set-key "rcc" 'cljr-cycle-coll)
+    (evil-leader/set-key "rcp" 'cljr-cycle-privacy)
+    (evil-leader/set-key "rcs" 'clojure-toggle-keyword-string)))
