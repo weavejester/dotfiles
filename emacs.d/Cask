@@ -34,6 +34,7 @@
 (depends-on "company")
 (depends-on "use-package")
 (depends-on "ag")
+(depends-on "guide-key")
 (depends-on "flx-ido")
 (depends-on "ido-vertical-mode")
 (depends-on "ack-and-a-half")

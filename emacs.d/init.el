@@ -148,6 +148,16 @@
     (define-key evil-normal-state-map "<)" 'paredit-forward-barf-sexp)
     (define-key evil-normal-state-map ">(" 'paredit-backward-barf-sexp)))
 
+(use-package guide-key
+  :init (guide-key-mode 1)
+  :config
+  (progn
+    (setq guide-key/idle-delay 0.4)
+    (setq guide-key/recursive-key-sequence-flag t)
+    (setq guide-key/popup-window-position 'bottom)
+    (setq guide-key/guide-key-sequence
+          `("C-h" "C-x" "C-c" ,evil-leader/leader "g" "z"))))
+
 (use-package ido
   :config
   (progn
