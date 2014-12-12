@@ -109,7 +109,7 @@
     (evil-mode 1)
     (use-package evil-leader
       :init (global-evil-leader-mode)
-      :config (evil-leader/set-leader ","))
+      :config (evil-leader/set-leader "SPC"))
     (use-package evil-paredit
       :init (add-hook 'paredit-mode-hook 'evil-paredit-mode))
     (use-package evil-surround
