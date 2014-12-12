@@ -33,6 +33,7 @@
 (depends-on "clj-refactor")
 (depends-on "company")
 (depends-on "use-package")
+(depends-on "ag")
 (depends-on "flx-ido")
 (depends-on "ido-vertical-mode")
 (depends-on "ack-and-a-half")
