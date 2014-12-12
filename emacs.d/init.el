@@ -179,6 +179,15 @@
 (use-package ido-vertical-mode
   :init (ido-vertical-mode 1))
 
+
+(use-package fancy-narrow
+  :config
+  (evil-leader/set-key
+    "nr" 'fancy-narrow-to-region
+    "np" 'fancy-narrow-to-page
+    "nf" 'fancy-narrow-to-defun
+    "nw" 'fancy-widen))
+
 (use-package projectile
   :init (projectile-global-mode)
   :config
