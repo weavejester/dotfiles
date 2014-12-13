@@ -293,6 +293,13 @@
       (interactive)
       (cider-interactive-eval "(user/reset)"))
 
+    (evil-leader/set-key "eb" 'cider-eval-buffer)
+    (evil-leader/set-key "ee" 'cider-eval-last-sexp)
+    (evil-leader/set-key "er" 'cider-eval-region)
+    (evil-leader/set-key "ef" 'cider-eval-defun-at-point)
+
+    (evil-leader/set-key "cd" 'cider-doc)
+    (evil-leader/set-key "cc" 'cider-connect)
     (evil-leader/set-key "cr" 'toggle-nrepl-buffer)
     (evil-leader/set-key "cR" 'cider-project-reset)))
 
