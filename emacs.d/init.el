@@ -129,16 +129,21 @@
     (setq evil-move-cursor-back nil)
 
     (evil-define-motion evil-forward-sexp (count)
+      :type inclusive
       (if (paredit-in-string-p)
           (evil-forward-word-end count)
-          (paredit-forward count)))
+        (progn (evil-forward-char)
+               (paredit-forward count)
+               (evil-backward-char))))
 
     (evil-define-motion evil-backward-sexp (count)
+      :type inclusive
       (if (paredit-in-string-p)
           (evil-backward-word-begin)
-          (paredit-backward count)))
+        (paredit-backward count)))
 
     (evil-define-motion evil-forward-sexp-word (count)
+      :type exclusive
       (if (paredit-in-string-p)
           (evil-forward-word-begin count)
           (progn (paredit-forward count)
