@@ -112,7 +112,8 @@
       :config
       (progn
         (evil-leader/set-leader "SPC")
-        (evil-leader/set-key "wc" 'delete-window)
+        (evil-leader/set-key "wd" 'delete-window)
+        (evil-leader/set-key "wo" 'delete-other-windows)
         (evil-leader/set-key "ws" 'split-window-below)
         (evil-leader/set-key "ww" 'other-window)))
     (use-package evil-paredit
