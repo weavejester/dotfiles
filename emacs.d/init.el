@@ -153,8 +153,8 @@
       :type exclusive
       (if (paredit-in-string-p)
           (evil-forward-word-begin count)
-          (progn (paredit-forward count)
-                 (skip-chars-forward "[:space:]"))))
+        (progn (paredit-forward count)
+               (skip-chars-forward "[:space:]"))))
 
     (define-key evil-motion-state-map "w" 'evil-forward-sexp-word)
     (define-key evil-motion-state-map "e" 'evil-forward-sexp)
