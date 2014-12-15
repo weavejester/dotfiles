@@ -91,6 +91,12 @@
     (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
     (add-hook 'clojure-mode-hook 'highlight-parentheses-mode)))
 
+(use-package aggressive-indent-mode
+  :init
+  (progn
+    (add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode)
+    (add-hook 'clojure-mode-hook 'aggressive-indent-mode)))
+
 (use-package company
   :init (global-company-mode)
   :config
@@ -184,7 +190,6 @@
 
 (use-package ido-vertical-mode
   :init (ido-vertical-mode 1))
-
 
 (use-package fancy-narrow
   :config
