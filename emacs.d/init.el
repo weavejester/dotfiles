@@ -139,9 +139,10 @@
       :type inclusive
       (if (paredit-in-string-p)
           (evil-forward-word-end count)
-        (progn (evil-forward-char)
-               (paredit-forward count)
-               (evil-backward-char))))
+        (progn
+          (if (looking-at ".\\s-\\|\\s)") (forward-char))
+          (paredit-forward count)
+          (backward-char))))
 
     (evil-define-motion evil-backward-sexp (count)
       :type inclusive
