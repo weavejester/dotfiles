@@ -307,6 +307,7 @@
 
     (evil-leader/set-key "cd" 'cider-doc)
     (evil-leader/set-key "cc" 'cider-connect)
+    (evil-leader/set-key "ct" 'cider-test-run-tests)
     (evil-leader/set-key "cr" 'toggle-nrepl-buffer)
     (evil-leader/set-key "cR" 'cider-project-reset)))
 
