@@ -44,7 +44,7 @@
    `(font-lock-keyword-face ((t (:foreground ,weft-magenta))))
    `(font-lock-string-face ((t (:foreground ,weft-yellow))))
    `(font-lock-type-face ((t (:foreground ,weft-blue-light))))
-   `(font-lock-variable-name-face ((t (:foreground ,weft-magenta))))
+   `(font-lock-variable-name-face ((t (:foreground ,weft-green))))
    `(font-lock-warning-face ((t (:bold t :foreground ,weft-purple-light))))
    ;; Parenface
    `(parenface-paren-face ((t (:foreground "#999999"))))
