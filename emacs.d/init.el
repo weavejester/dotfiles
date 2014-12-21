@@ -298,7 +298,7 @@
 
     (defun cider-project-reset ()
       (interactive)
-      (cider-interactive-eval "(user/reset)"))
+      (cider-interactive-eval "(reloaded.repl/reset)"))
 
     (evil-leader/set-key "eb" 'cider-eval-buffer)
     (evil-leader/set-key "ee" 'cider-eval-last-sexp)
