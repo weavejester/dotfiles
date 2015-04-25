@@ -224,7 +224,8 @@
 (use-package glsl-mode)
 
 (use-package clojure-mode
-  :mode ("\\.edn$" . clojure-mode)
+  :mode (("\\.edn$" . clojure-mode)
+         ("\\.cljc$" . clojure-mode))
   :init
   (progn
     (use-package cider
