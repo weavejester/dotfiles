@@ -274,7 +274,9 @@
       (go-loop 1))
 
     (define-clojure-indent
-      (assoc-some 1))
+      (this-as 1)
+      (specify 1)
+      (specify! 1))
 
     (setq clojure--prettify-symbols-alist
           '(("fn"  . ?λ)
