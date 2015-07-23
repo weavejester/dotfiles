@@ -37,7 +37,6 @@
 (depends-on "guide-key")
 (depends-on "flx-ido")
 (depends-on "ido-vertical-mode")
-(depends-on "ack-and-a-half")
 (depends-on "better-defaults")
 (depends-on "fancy-narrow")
 (depends-on "aggressive-indent")
