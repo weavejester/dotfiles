@@ -32,6 +32,9 @@
  `(parenface-paren-face ((t (:foreground "#999999"))))
  `(parenface-bracket-face ((t (:foreground "#cccccc"))))
  `(parenface-curly-face ((t (:foreground "#cccccc"))))
+ ;; Cider
+ `(cider-repl-stdout-face ((t (:foreground "#aaaaaa"))))
+ `(cider-repl-stderr-face ((t (:foreground "#aaaaaa"))))
  ;; Org-Mode
  `(org-block ((t (:foreground "#777777"))))
  `(org-block-begin-line ((t (:foreground "#777777"))))
