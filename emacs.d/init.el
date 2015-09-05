@@ -234,9 +234,11 @@
         (setq cider-popup-stacktraces-in-repl t)
         (setq cider-repl-history-file "~/.emacs.d/nrepl-history")
         (setq cider-repl-pop-to-buffer-on-connect nil)
-        (setq cider-repl-use-clojure-font-lock t)
+        (setq cider-repl-use-clojure-font-lock nil)
         (setq cider-auto-select-error-buffer nil)
-        (setq cider-prompt-save-file-on-load nil))))
+        (setq cider-prompt-save-file-on-load nil)
+        (setq cider-refresh-before-fn "reloaded.repl/suspend")
+        (setq cider-refresh-after-fn "reloaded.repl/resume"))))
   :config
   (progn
     (define-clojure-indent
@@ -293,9 +295,10 @@
           (delete-window)
         (cider-switch-to-relevant-repl-buffer)))
 
-    (defun cider-project-reset ()
+    (defun cider-save-and-refresh ()
       (interactive)
-      (cider-interactive-eval "(reloaded.repl/reset)"))
+      (save-buffer)
+      (call-interactively 'cider-refresh))
 
     (evil-leader/set-key "eb" 'cider-eval-buffer)
     (evil-leader/set-key "ee" 'cider-eval-last-sexp)
@@ -306,7 +309,7 @@
     (evil-leader/set-key "cc" 'cider-connect)
     (evil-leader/set-key "ct" 'cider-test-run-tests)
     (evil-leader/set-key "cr" 'toggle-nrepl-buffer)
-    (evil-leader/set-key "cR" 'cider-project-reset)))
+    (evil-leader/set-key "cf" 'cider-save-and-refresh)))
 
 (use-package typed-clojure-mode
   :init
