@@ -40,3 +40,4 @@
 (depends-on "better-defaults")
 (depends-on "fancy-narrow")
 (depends-on "aggressive-indent")
+(depends-on "rainbow-mode")
