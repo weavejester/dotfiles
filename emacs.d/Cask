@@ -21,6 +21,7 @@
 (depends-on "evil-leader")
 (depends-on "evil-paredit")
 (depends-on "evil-surround")
+(depends-on "evil-org")
 (depends-on "highlight-parentheses")
 (depends-on "powerline")
 (depends-on "diminish")

@@ -116,6 +116,8 @@
         (evil-leader/set-key "wo" 'delete-other-windows)
         (evil-leader/set-key "ws" 'split-window-below)
         (evil-leader/set-key "ww" 'other-window)))
+    (use-package evil-org
+      :init (add-hook 'org-mode-hook 'evil-org-mode))
     (use-package evil-paredit
       :init (add-hook 'paredit-mode-hook 'evil-paredit-mode))
     (use-package evil-surround
