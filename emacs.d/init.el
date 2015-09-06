@@ -61,7 +61,8 @@
       (eval-after-load "paredit" '(diminish 'paredit-mode " par"))
       (eval-after-load "company" '(diminish 'company-mode " cmp"))
       (eval-after-load "cider" '(diminish 'cider-mode " cid"))
-      (eval-after-load "typed-clojure-mode" '(diminish 'typed-clojure-mode " typ"))))
+      (eval-after-load "typed-clojure-mode" '(diminish 'typed-clojure-mode " typ"))
+      (eval-after-load "evil-org" '(diminish 'evil-org-mode))))
   :config
   (progn
     (require 'weft-powerline)
@@ -211,6 +212,12 @@
   (progn
     (yas-global-mode 1)
     (use-package clojure-snippets)))
+
+(use-package org
+  :init (add-hook 'org-mode-hook 'org-indent-mode)
+  :config
+  (progn
+    (setq org-tags-column 0)))
 
 (use-package yaml-mode
   :mode ("\\.yml$" . yaml-mode))
