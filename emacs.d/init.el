@@ -73,6 +73,17 @@
 (eval-after-load "flyspell"
   '(defun flyspell-mode (&optional arg)))
 
+;;;; Global keybindings ;;;;
+
+(global-set-key (kbd "s-x") 'kill-region)
+(global-set-key (kbd "s-c") 'kill-ring-save)
+(global-set-key (kbd "s-v") 'yank)
+
+(global-set-key (kbd "s-z") 'undo)
+
+(global-set-key (kbd "s-s") 'save-buffer)
+(global-set-key (kbd "s-w") 'delete-window)
+(global-set-key (kbd "s-q") 'save-buffers-kill-terminal)
 
 ;;;; Modes ;;;;
 
