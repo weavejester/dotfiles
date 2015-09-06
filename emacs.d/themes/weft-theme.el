@@ -39,9 +39,11 @@
  `(org-block ((t (:foreground "#777777"))))
  `(org-block-begin-line ((t (:foreground "#777777"))))
  `(org-ellipsis ((t (:foreground "#777777"))))
- `(org-level-1 ((t (:foreground "#a6e22a"))))
- `(org-level-2 ((t (:foreground "#f92672"))))
- `(org-level-3 ((t (:foreground "#89bdff"))))
+ `(org-level-1 ((t (:foreground "#ff5599"))))
+ `(org-level-2 ((t (:foreground "#99bbff"))))
+ `(org-level-3 ((t (:foreground "#ff88ff"))))
+ `(org-level-4 ((t (:foreground "#ffff33"))))
+ `(org-tag ((t (:foreground "#aaaaaa"))))
  ;; CUA
  `(cua-rectangle ((t (:background "#141411"))))
  ;; IDO
