@@ -62,6 +62,7 @@
       (eval-after-load "company" '(diminish 'company-mode " cmp"))
       (eval-after-load "cider" '(diminish 'cider-mode " cid"))
       (eval-after-load "typed-clojure-mode" '(diminish 'typed-clojure-mode " typ"))
+      (eval-after-load "org-indent" '(diminish 'org-indent-mode))
       (eval-after-load "evil-org" '(diminish 'evil-org-mode))))
   :config
   (progn
