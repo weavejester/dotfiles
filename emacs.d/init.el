@@ -231,6 +231,11 @@
   (progn
     (setq org-tags-column 0)))
 
+(use-package magit
+  :init
+  (progn
+    (evil-leader/set-key "gs" 'magit-status)))
+
 (use-package yaml-mode
   :mode ("\\.yml$" . yaml-mode))
 
