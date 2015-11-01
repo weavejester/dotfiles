@@ -336,11 +336,9 @@
       (specify! 1))
 
     (setq clojure--prettify-symbols-alist
-          '(("fn"  . ?λ)
+          '(("fn" . ?λ)
             ("comp" . ?∘)
             ("not=" . ?≠)
-            ("<=" . ?≤)
-            (">=" . ?≥)
             ("identical?" . ?≡)))
 
     (defun toggle-nrepl-buffer ()
