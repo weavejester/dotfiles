@@ -129,7 +129,7 @@
   :init
   (global-paren-face-mode)
   :config
-  (add-hook 'clojure-mode-hook (lambda () (setq paren-face-regexp "[](){}[]"))))
+  (add-hook 'clojure-mode-hook (lambda () (setq paren-face-regexp "#?[](){}[]"))))
 
 (use-package highlight-parentheses
   :init
