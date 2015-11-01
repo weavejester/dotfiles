@@ -64,10 +64,6 @@
    `(company-tooltip-selection ((t (:background "#eeeeee" :foreground "#000000"))))
    `(company-tooltip-common    ((t (:background "#cccccc" :foreground "#000000")))))
 
-(custom-theme-set-variables
- 'weft
- `(hl-paren-colors '("#ffaa00")))
-
 ;;;###autoload
 (when load-file-name
   (add-to-list 'custom-theme-load-path

@@ -131,12 +131,6 @@
   :config
   (add-hook 'clojure-mode-hook (lambda () (setq paren-face-regexp "#?[](){}[]"))))
 
-(use-package highlight-parentheses
-  :init
-  (progn
-    (add-hook 'emacs-lisp-mode-hook 'highlight-parentheses-mode)
-    (add-hook 'clojure-mode-hook 'highlight-parentheses-mode)))
-
 (use-package company
   :init (global-company-mode)
   :config
