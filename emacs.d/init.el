@@ -19,9 +19,38 @@
 
 ;;;; Editor ;;;;
 
-(let ((font "Menlo:pixelsize=12"))
-  (set-face-attribute 'default nil :font font)
-  (set-frame-font font nil t))
+(when (window-system)
+  (set-default-font "Fira Code"))
+
+;; Workaround for Fira Code ligatures
+;; See: https://github.com/tonsky/FiraCode/wiki/Setting-up-Emacs
+
+(let ((alist '((33 . ".\\(?:\\(?:==\\)\\|[!=]\\)")
+               (35 . ".\\(?:[(?[_{]\\)")
+               (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+               (42 . ".\\(?:\\(?:\\*\\*\\)\\|[*/]\\)")
+               (43 . ".\\(?:\\(?:\\+\\+\\)\\|\\+\\)")
+               (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+               (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=]\\)")
+               (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+               (58 . ".\\(?:[:=]\\)")
+               (59 . ".\\(?:;\\)")
+               (60 . ".\\(?:\\(?:!--\\)\\|\\(?:\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[/<=>|-]\\)")
+               (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+               (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+               (63 . ".\\(?:[:=?]\\)")
+               (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+               (94 . ".\\(?:=\\)")
+               (123 . ".\\(?:-\\)")
+               (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+               (126 . ".\\(?:[=@~-]\\)"))))
+
+(dolist (char-regexp alist)
+  (set-char-table-range composition-function-table
+                        (car char-regexp)
+                        `([,(cdr char-regexp) 0 font-shape-gstring]))))
+
+;; Ligature setup done
 
 (setq inhibit-startup-message t)
 (blink-cursor-mode 0)
