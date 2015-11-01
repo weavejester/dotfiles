@@ -29,7 +29,7 @@
  `(font-lock-variable-name-face ((t (:foreground "#a6e22a"))))
  `(font-lock-warning-face ((t (:bold t :foreground "#fd5ff1"))))
  ;; Paren-face
- `(parenthesis ((t (:foreground "#999999"))))
+ `(parenthesis ((t (:foreground "#aaaaaa"))))
  ;; Cider
  `(cider-repl-stdout-face ((t (:foreground "#aaaaaa"))))
  `(cider-repl-stderr-face ((t (:foreground "#aaaaaa"))))
