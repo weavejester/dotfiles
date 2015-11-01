@@ -337,7 +337,6 @@
 
     (setq clojure--prettify-symbols-alist
           '(("fn" . ?λ)
-            ("comp" . ?∘)
             ("not=" . ?≠)
             ("identical?" . ?≡)))
 
