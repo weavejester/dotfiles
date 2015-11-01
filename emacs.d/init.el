@@ -364,7 +364,9 @@
     (evil-leader/set-key "cc" 'cider-connect)
     (evil-leader/set-key "ct" 'cider-test-run-tests)
     (evil-leader/set-key "cr" 'toggle-nrepl-buffer)
-    (evil-leader/set-key "cf" 'cider-save-and-refresh)))
+    (evil-leader/set-key "cf" 'cider-save-and-refresh)
+
+    (global-set-key (kbd "s-r") 'cider-save-and-refresh)))
 
 (use-package typed-clojure-mode
   :init
