@@ -66,7 +66,7 @@
 
 (custom-theme-set-variables
  'weft
- `(hl-paren-colors '("#ffffff")))
+ `(hl-paren-colors '("#ffaa00")))
 
 ;;;###autoload
 (when load-file-name
