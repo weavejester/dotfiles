@@ -28,10 +28,8 @@
  `(font-lock-type-face ((t (:foreground "#89bdff"))))
  `(font-lock-variable-name-face ((t (:foreground "#a6e22a"))))
  `(font-lock-warning-face ((t (:bold t :foreground "#fd5ff1"))))
- ;; Parenface
- `(parenface-paren-face ((t (:foreground "#999999"))))
- `(parenface-bracket-face ((t (:foreground "#cccccc"))))
- `(parenface-curly-face ((t (:foreground "#cccccc"))))
+ ;; Paren-face
+ `(parenthesis ((t (:foreground "#999999"))))
  ;; Cider
  `(cider-repl-stdout-face ((t (:foreground "#aaaaaa"))))
  `(cider-repl-stderr-face ((t (:foreground "#aaaaaa"))))

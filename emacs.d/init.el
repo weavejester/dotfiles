@@ -125,7 +125,11 @@
     (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
     (add-hook 'clojure-mode-hook 'paredit-mode)))
 
-(use-package parenface)
+(use-package paren-face
+  :init
+  (global-paren-face-mode)
+  :config
+  (add-hook 'clojure-mode-hook (lambda () (setq paren-face-regexp "[](){}[]"))))
 
 (use-package highlight-parentheses
   :init
