@@ -1,6 +1,6 @@
 ;;;; Initialize ;;;;
 
-(require 'cask "/usr/local/share/emacs/site-lisp/cask.el")
+(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
 (cask-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/lisp")
