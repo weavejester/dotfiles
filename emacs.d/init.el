@@ -160,8 +160,8 @@
         (evil-leader/set-key "ww" 'other-window)))
     (use-package evil-org
       :init (add-hook 'org-mode-hook 'evil-org-mode))
-    (use-package evil-paredit
-      :init (add-hook 'paredit-mode-hook 'evil-paredit-mode))
+    (use-package evil-cleverparens
+      :init (add-hook 'paredit-mode-hook 'evil-cleverparens-mode))
     (use-package evil-surround
       :init (global-evil-surround-mode 1)
       :config
@@ -171,40 +171,7 @@
   :config
   (progn
     (setq evil-cross-lines t)
-    (setq evil-move-cursor-back nil)
-
-    (evil-define-motion evil-forward-sexp (count)
-      :type inclusive
-      (if (paredit-in-string-p)
-          (evil-forward-word-end count)
-        (progn
-          (if (looking-at ".\\s-\\|\\s)") (forward-char))
-          (paredit-forward count)
-          (backward-char))))
-
-    (evil-define-motion evil-backward-sexp (count)
-      :type inclusive
-      (if (paredit-in-string-p)
-          (evil-backward-word-begin)
-        (paredit-backward count)))
-
-    (evil-define-motion evil-forward-sexp-word (count)
-      :type exclusive
-      (if (paredit-in-string-p)
-          (evil-forward-word-begin count)
-        (progn (paredit-forward count)
-               (skip-chars-forward "[:space:]"))))
-
-    (define-key evil-motion-state-map "w" 'evil-forward-sexp-word)
-    (define-key evil-motion-state-map "e" 'evil-forward-sexp)
-    (define-key evil-motion-state-map "b" 'evil-backward-sexp)
-
-    (define-key evil-normal-state-map ">" nil)
-    (define-key evil-normal-state-map "<" nil)
-    (define-key evil-normal-state-map ">)" 'paredit-forward-slurp-sexp)
-    (define-key evil-normal-state-map "<(" 'paredit-backward-slurp-sexp)
-    (define-key evil-normal-state-map "<)" 'paredit-forward-barf-sexp)
-    (define-key evil-normal-state-map ">(" 'paredit-backward-barf-sexp)))
+    (setq evil-move-cursor-back nil)))
 
 (use-package guide-key
   :init (guide-key-mode 1)
