@@ -220,7 +220,6 @@
     (use-package clojure-snippets)))
 
 (use-package org
-  :init (add-hook 'org-mode-hook 'org-indent-mode)
   :config
   (progn
     (setq org-tags-column 0)))
