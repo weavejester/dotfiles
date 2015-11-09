@@ -316,11 +316,17 @@
   (add-hook 'clojure-mode-hook (lambda () (clj-refactor-mode 1)))
   :config
   (progn
+    (evil-leader/set-key "rai" 'cljr-add-import-to-ns)
+    (evil-leader/set-key "rar" 'cljr-add-require-to-ns)
+    (evil-leader/set-key "rau" 'cljr-add-use-to-ns)
+    (evil-leader/set-key "rrr" 'cljr-remove-unused-requires)
+    (evil-leader/set-key "rsn" 'cljr-sort-ns)
     (evil-leader/set-key "rtf" 'cljr-thread-first-all)
     (evil-leader/set-key "rtl" 'cljr-thread-last-all)
     (evil-leader/set-key "rcc" 'cljr-cycle-coll)
     (evil-leader/set-key "rcp" 'cljr-cycle-privacy)
-    (evil-leader/set-key "rcs" 'clojure-toggle-keyword-string)))
+    (evil-leader/set-key "rcs" 'clojure-toggle-keyword-string)
+    (evil-leader/set-key "rfe" 'cljr-create-fn-from-example)))
 
 ;; Reset all bold and italic font faces, because Fira Code currenty has
 ;; no support for that, and it makes things look terrible
