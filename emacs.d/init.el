@@ -214,25 +214,6 @@
 (use-package clojure-mode
   :mode (("\\.edn$" . clojure-mode)
          ("\\.cljc$" . clojure-mode))
-  :init
-  (progn
-    (use-package cider
-      :init
-      (progn
-        (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-        (add-hook 'cider-repl-mode-hook 'subword-mode)
-        (use-package slamhound))
-      :config
-      (progn
-        (setq nrepl-hide-special-buffers t)
-        (setq cider-popup-stacktraces-in-repl t)
-        (setq cider-repl-history-file "~/.emacs.d/nrepl-history")
-        (setq cider-repl-pop-to-buffer-on-connect nil)
-        (setq cider-repl-use-clojure-font-lock nil)
-        (setq cider-auto-select-error-buffer nil)
-        (setq cider-prompt-save-file-on-load nil)
-        (setq cider-refresh-before-fn "reloaded.repl/suspend")
-        (setq cider-refresh-after-fn "reloaded.repl/resume"))))
   :config
   (progn
     (define-clojure-indent
@@ -303,6 +284,23 @@
     (evil-leader/set-key "cf" 'cider-save-and-refresh)
 
     (global-set-key (kbd "s-r") 'cider-save-and-refresh)))
+
+(use-package cider
+  :init
+  (progn
+    (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+    (add-hook 'cider-repl-mode-hook 'subword-mode))
+  :config
+  (progn
+    (setq nrepl-hide-special-buffers t)
+    (setq cider-popup-stacktraces-in-repl t)
+    (setq cider-repl-history-file "~/.emacs.d/nrepl-history")
+    (setq cider-repl-pop-to-buffer-on-connect nil)
+    (setq cider-repl-use-clojure-font-lock nil)
+    (setq cider-auto-select-error-buffer nil)
+    (setq cider-prompt-save-file-on-load nil)
+    (setq cider-refresh-before-fn "reloaded.repl/suspend")
+    (setq cider-refresh-after-fn "reloaded.repl/resume")))
 
 (use-package typed-clojure-mode
   :init
