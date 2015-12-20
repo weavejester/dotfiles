@@ -256,14 +256,16 @@
       (DELETE 2)
       (HEAD 2)
       (ANY 2)
-      (context 2))
+      (context 2)
+      (let-routes 1))
 
     (define-clojure-indent
       (form-to 1))
 
     (define-clojure-indent
       (match 1)
-      (are 2))
+      (are 2)
+      (checking 2))
 
     (define-clojure-indent
       (select 1)
