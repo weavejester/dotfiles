@@ -359,10 +359,3 @@
     (evil-leader/set-key "rcp" 'cljr-cycle-privacy)
     (evil-leader/set-key "rcs" 'clojure-toggle-keyword-string)
     (evil-leader/set-key "rfe" 'cljr-create-fn-from-example)))
-
-;; Reset all bold and italic font faces, because Fira Code currenty has
-;; no support for that, and it makes things look terrible
-(mapc (lambda (face)
-        (if (face-bold-p face) (set-face-bold face nil))
-        (if (face-italic-p face) (set-face-italic face nil)))
-      (face-list))
