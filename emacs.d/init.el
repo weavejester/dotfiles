@@ -233,7 +233,8 @@
     (define-clojure-indent
       (match 1)
       (are 2)
-      (checking 2))
+      (checking 2)
+      (async 1))
 
     (define-clojure-indent
       (select 1)
