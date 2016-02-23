@@ -268,7 +268,7 @@
       (interactive)
       (if (string-match "cider-repl" (buffer-name (current-buffer)))
           (delete-window)
-        (cider-switch-to-relevant-repl-buffer)))
+        (cider-switch-to-repl-buffer)))
 
     (defun cider-save-and-refresh ()
       (interactive)
