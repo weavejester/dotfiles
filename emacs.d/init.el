@@ -116,6 +116,8 @@
 
     (global-set-key "\t" 'indent-or-complete)))
 
+(use-package magit)
+
 (use-package evil
   :init
   (progn
@@ -131,6 +133,10 @@
         (evil-leader/set-key "wh" 'split-window-horizontally)
         (evil-leader/set-key "wv" 'split-window-vertically)
         (evil-leader/set-key "ww" 'other-window)))
+    (use-package evil-magit
+      :config
+      (progn
+        (evil-leader/set-key "gs" 'magit-status)))
     (use-package evil-org
       :init (add-hook 'org-mode-hook 'evil-org-mode))
     (use-package evil-cleverparens
@@ -196,11 +202,6 @@
   :config
   (progn
     (setq org-tags-column 0)))
-
-(use-package magit
-  :init
-  (progn
-    (evil-leader/set-key "gs" 'magit-status)))
 
 (use-package yaml-mode
   :mode ("\\.yml$" . yaml-mode))

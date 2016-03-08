@@ -22,6 +22,7 @@
 (depends-on "evil-cleverparens")
 (depends-on "evil-surround")
 (depends-on "evil-org")
+(depends-on "evil-magit")
 (depends-on "powerline")
 (depends-on "diminish")
 (depends-on "paredit")
