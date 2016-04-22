@@ -65,7 +65,9 @@
       (eval-after-load "cider" '(diminish 'cider-mode " cid"))
       (eval-after-load "typed-clojure-mode" '(diminish 'typed-clojure-mode " typ"))
       (eval-after-load "org-indent" '(diminish 'org-indent-mode))
-      (eval-after-load "evil-org" '(diminish 'evil-org-mode))))
+      (eval-after-load "evil-org" '(diminish 'evil-org-mode))
+      (eval-after-load "evil-cleverparens" '(diminish 'evil-cleverparens-mode))
+      (eval-after-load "autorevert" '(diminish 'auto-revert-mode))))
   :config
   (progn
     (require 'weft-powerline)
