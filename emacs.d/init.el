@@ -216,8 +216,7 @@
 (use-package glsl-mode)
 
 (use-package clojure-mode
-  :mode (("\\.edn$" . clojure-mode)
-         ("\\.cljc$" . clojure-mode))
+  :mode (("\\.edn$" . clojure-mode))
   :config
   (progn
     (define-clojure-indent
