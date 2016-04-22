@@ -307,7 +307,8 @@
     (setq cider-prompt-save-file-on-load nil)
     (setq cider-repl-display-help-banner nil)
     (setq cider-refresh-before-fn "reloaded.repl/suspend")
-    (setq cider-refresh-after-fn "reloaded.repl/resume")))
+    (setq cider-refresh-after-fn "reloaded.repl/resume")
+    (setq cider-cljs-lein-repl "(do (reloaded.repl/go) (user/cljs-repl))")))
 
 (use-package typed-clojure-mode
   :init
