@@ -305,6 +305,7 @@
     (setq cider-repl-use-clojure-font-lock nil)
     (setq cider-auto-select-error-buffer nil)
     (setq cider-prompt-save-file-on-load nil)
+    (setq cider-repl-display-help-banner nil)
     (setq cider-refresh-before-fn "reloaded.repl/suspend")
     (setq cider-refresh-after-fn "reloaded.repl/resume")))
 
