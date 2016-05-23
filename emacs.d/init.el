@@ -149,8 +149,8 @@
       :init (global-evil-surround-mode 1)
       :config
       (progn
-        (add-to-list 'evil-surround-operator-alist '(evil-paredit-change . change))
-        (add-to-list 'evil-surround-operator-alist '(evil-paredit-delete . delete)))))
+        (add-to-list 'evil-surround-operator-alist '(evil-cp-change . change))
+        (add-to-list 'evil-surround-operator-alist '(evil-cp-delete . delete)))))
   :config
   (progn
     (setq evil-cross-lines t)
