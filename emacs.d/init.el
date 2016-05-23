@@ -286,7 +286,11 @@
 
     (evil-leader/set-key "cd" 'cider-doc)
     (evil-leader/set-key "cc" 'cider-connect)
-    (evil-leader/set-key "ct" 'cider-test-run-tests)
+    (evil-leader/set-key "cj" 'cider-jack-in)
+    (evil-leader/set-key "cJ" 'cider-jack-in-clojurescript)
+    (evil-leader/set-key "ct" 'cider-test-run-ns-tests)
+    (evil-leader/set-key "cT" 'cider-test-run-project-tests)
+    (evil-leader/set-key "cn" 'cider-repl-set-ns)
     (evil-leader/set-key "cr" 'toggle-nrepl-buffer)
     (evil-leader/set-key "cf" 'cider-save-and-refresh)
 
