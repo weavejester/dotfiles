@@ -43,3 +43,4 @@
 (depends-on "fancy-narrow")
 (depends-on "aggressive-indent")
 (depends-on "rainbow-mode")
+(depends-on "linum-relative")
