@@ -21,6 +21,11 @@
   "Powerline face for evil VISUAL state."
   :group 'powerline)
 
+(defface powerline-evil-operator
+  '((t (:background "purple" :inherit powerline-evil-base-face)))
+  "Powerline face for evil OPERATOR state."
+  :group 'powerline)
+
 (defun evil-state-face (active)
   (let ((face (intern (concat "powerline-evil-" (symbol-name evil-state)))))
     (cond ((and active (facep face)) face)

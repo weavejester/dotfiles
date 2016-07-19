@@ -53,6 +53,7 @@
  `(powerline-inactive2 ((t (:background "#333333" :foreground "#ffffff"))))
  `(powerline-evil-normal ((t (:background "#559900" :foreground "#002200"))))
  `(powerline-evil-insert ((t (:background "#dd3311" :foreground "#220000"))))
+ `(powerline-evil-operator ((t (:background "#1188cc" :foreground "#000022"))))
  `(powerline-evil-visual ((t (:background "#dd9900" :foreground "#222200"))))
  ;; Company
  `(company-preview ((t (:background "#ffff99" :foreground "#000000"))))
