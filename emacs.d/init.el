@@ -45,6 +45,7 @@
 ;; Mac Emacs settings
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'super)
+(setq fast-but-imprecise-scrolling t)
 
 ;; Buffer settings
 (setq default-indicate-empty-lines t)
