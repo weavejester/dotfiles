@@ -1,8 +1,5 @@
 ;;; weft-theme.el --- Weft color theme for Emacs.
 
-(unless (>= 24 emacs-major-version)
-  (error "weft-theme requires Emacs 24 or later."))
-
 (deftheme weft
   "Weft color theme")
 
