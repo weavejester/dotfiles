@@ -271,9 +271,7 @@
       (specify! 1))
 
     (setq clojure--prettify-symbols-alist
-          '(("fn" . ?λ)
-            ("not=" . ?≠)
-            ("identical?" . ?≡)))
+          '(("fn" . ?λ)))
 
     (defun toggle-nrepl-buffer ()
       "Toggle the nREPL REPL on and off"
