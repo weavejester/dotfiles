@@ -353,9 +353,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (clj-refactor yaml-mode wrap-region use-package typed-clojure-mode smex slamhound rainbow-mode projectile powerline paren-face multiple-cursors markdown-mode linum-relative ido-vertical-mode guide-key glsl-mode flx-ido fancy-narrow expand-region evil-surround evil-org evil-magit evil-cleverparens drag-stuff company clojure-snippets cask better-defaults aggressive-indent ag)))
  '(safe-local-variable-values
    (quote
-    ((cider-cljs-lein-repl . "(do (dev) (go) (cljs-repl))")
+    ((cider-refresh-after-fn . "integrant.repl/resume")
+     (cider-refresh-before-fn . "integrant.repl/suspend")
+     (cider-cljs-lein-repl . "(do (dev) (go) (cljs-repl))")
      (cider-refresh-after-fn . "reloaded.repl/resume")
      (cider-refresh-before-fn . "reloaded.repl/suspend")))))
 
