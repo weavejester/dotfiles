@@ -310,19 +310,16 @@
     (global-set-key (kbd "s-r") 'cider-save-and-refresh)))
 
 (use-package cider
-  :init
-  (progn
-    (add-hook 'cider-repl-mode-hook 'subword-mode))
   :config
   (progn
     (setq nrepl-hide-special-buffers t)
     (setq cider-popup-stacktraces-in-repl t)
     (setq cider-repl-history-file "~/.emacs.d/nrepl-history")
     (setq cider-repl-pop-to-buffer-on-connect nil)
-    (setq cider-repl-use-clojure-font-lock nil)
     (setq cider-auto-select-error-buffer nil)
     (setq cider-prompt-save-file-on-load nil)
     (setq cider-repl-display-help-banner nil)
+    (setq cider-repl-use-pretty-printing t)
     (setq cider-refresh-before-fn "reloaded.repl/suspend")
     (setq cider-refresh-after-fn "reloaded.repl/resume")
     (setq cider-cljs-lein-repl "(do (reloaded.repl/go) (user/cljs-repl))")))
