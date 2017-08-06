@@ -32,7 +32,6 @@
 (depends-on "typed-clojure-mode")
 (depends-on "paren-face")
 (depends-on "cider")
-(depends-on "slamhound")
 (depends-on "clj-refactor")
 (depends-on "company")
 (depends-on "use-package")
