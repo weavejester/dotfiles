@@ -153,11 +153,12 @@
     (use-package evil-org
       :init (add-hook 'org-mode-hook 'evil-org-mode))
     (use-package evil-cleverparens
-      :init (add-hook 'paredit-mode-hook 'evil-cleverparens-mode))
+      :init   (add-hook 'paredit-mode-hook 'evil-cleverparens-mode)
+      :config (setq evil-cleverparens-swap-move-by-word-and-symbol t))
     (use-package evil-surround
-      :init (global-evil-surround-mode 1)
       :config
       (progn
+        (global-evil-surround-mode 1)
         (add-to-list 'evil-surround-operator-alist '(evil-cp-change . change))
         (add-to-list 'evil-surround-operator-alist '(evil-cp-delete . delete)))))
   :config
