@@ -225,7 +225,8 @@
          ("\\.md$" . markdown-mode))
   :init (add-hook 'markdown-mode-hook 'auto-fill-mode))
 
-(use-package glsl-mode)
+(use-package glsl-mode
+  :config (setq c-basic-offset 4))
 
 (use-package clojure-mode
   :mode (("\\.edn$" . clojure-mode))
