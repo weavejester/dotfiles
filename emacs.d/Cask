@@ -44,3 +44,7 @@
 (depends-on "aggressive-indent")
 (depends-on "rainbow-mode")
 (depends-on "linum-relative")
+(depends-on "doom-themes")
+(depends-on "airline-themes")
+(depends-on "solaire-mode")
+(depends-on "neotree")

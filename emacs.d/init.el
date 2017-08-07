@@ -52,34 +52,59 @@
 (setq require-final-newline t)
 (setq show-trailing-whitespace t)
 
-;; Color theme
-(load-theme 'weft t)
+;; Themes
 
-;; Custom mode-line
-(use-package powerline
+(use-package doom-themes
   :init
-  (use-package diminish
-    :config
-    (progn
-      (eval-after-load "undo-tree" '(diminish 'undo-tree-mode))
-      (eval-after-load "simple" '(diminish 'auto-fill-function))
-      (eval-after-load "eldoc" '(diminish 'eldoc-mode))
-      (eval-after-load "guide-key" '(diminish 'guide-key-mode))
-      (eval-after-load "highlight-parentheses" '(diminish 'highlight-parentheses-mode))
-      (eval-after-load "elisp-slime-nav" '(diminish 'elisp-slime-nav-mode " sln"))
-      (eval-after-load "projectile" '(diminish 'projectile-mode " prj"))
-      (eval-after-load "paredit" '(diminish 'paredit-mode " par"))
-      (eval-after-load "company" '(diminish 'company-mode " cmp"))
-      (eval-after-load "cider" '(diminish 'cider-mode " cid"))
-      (eval-after-load "typed-clojure-mode" '(diminish 'typed-clojure-mode " typ"))
-      (eval-after-load "org-indent" '(diminish 'org-indent-mode))
-      (eval-after-load "evil-org" '(diminish 'evil-org-mode))
-      (eval-after-load "evil-cleverparens" '(diminish 'evil-cleverparens-mode))
-      (eval-after-load "autorevert" '(diminish 'auto-revert-mode))))
+  (load-theme 'doom-vibrant t)
   :config
   (progn
-    (require 'weft-powerline)
-    (powerline-weft-theme)))
+    (doom-themes-neotree-config)
+    (doom-themes-org-config)))
+
+(use-package solaire-mode
+  :init
+  (solaire-mode))
+
+(use-package powerline)
+
+(use-package airline-themes
+  :init
+  (progn
+    (require 'airline-themes)
+    (load-theme 'airline-doom-one t))
+  :config
+  (progn
+    (set-face-attribute 'mode-line          nil :font "Fira Mono for Powerline")
+    (set-face-attribute 'mode-line-inactive nil :font "Fira Mono for Powerline")
+    (setq powerline-utf-8-separator-left        #xe0b0
+          powerline-utf-8-separator-right       #xe0b2
+          airline-utf-glyph-separator-left      #xe0b0
+          airline-utf-glyph-separator-right     #xe0b2
+          airline-utf-glyph-subseparator-left   #xe0b1
+          airline-utf-glyph-subseparator-right  #xe0b3
+          airline-utf-glyph-branch              #xe0a0
+          airline-utf-glyph-readonly            #xe0a2
+          airline-utf-glyph-linenumber          #xe0a1)))
+
+(use-package diminish
+  :config
+  (progn
+    (eval-after-load "undo-tree" '(diminish 'undo-tree-mode))
+    (eval-after-load "simple" '(diminish 'auto-fill-function))
+    (eval-after-load "eldoc" '(diminish 'eldoc-mode))
+    (eval-after-load "guide-key" '(diminish 'guide-key-mode))
+    (eval-after-load "highlight-parentheses" '(diminish 'highlight-parentheses-mode))
+    (eval-after-load "elisp-slime-nav" '(diminish 'elisp-slime-nav-mode " sln"))
+    (eval-after-load "projectile" '(diminish 'projectile-mode " prj"))
+    (eval-after-load "paredit" '(diminish 'paredit-mode " par"))
+    (eval-after-load "company" '(diminish 'company-mode " cmp"))
+    (eval-after-load "cider" '(diminish 'cider-mode " cid"))
+    (eval-after-load "typed-clojure-mode" '(diminish 'typed-clojure-mode " typ"))
+    (eval-after-load "org-indent" '(diminish 'org-indent-mode))
+    (eval-after-load "evil-org" '(diminish 'evil-org-mode))
+    (eval-after-load "evil-cleverparens" '(diminish 'evil-cleverparens-mode))
+    (eval-after-load "autorevert" '(diminish 'auto-revert-mode))))
 
 ;; No slow stupid flyspell. Die!
 (eval-after-load "flyspell"
@@ -190,6 +215,11 @@
 (use-package ido-vertical-mode
   :init (ido-vertical-mode 1))
 
+(use-package neotree
+  :config
+  (evil-leader/set-key
+    "tt" 'neotree-toggle))
+
 (use-package fancy-narrow
   :config
   (evil-leader/set-key
@@ -292,10 +322,17 @@
       (save-buffer)
       (call-interactively 'cider-refresh))
 
+    (defun cider-eval-last-sexp-and-append ()
+      (interactive)
+      (cider-eval-last-sexp '(1)))
+
     (evil-leader/set-key "eb" 'cider-eval-buffer)
     (evil-leader/set-key "ee" 'cider-eval-last-sexp)
     (evil-leader/set-key "er" 'cider-eval-region)
     (evil-leader/set-key "ef" 'cider-eval-defun-at-point)
+    (evil-leader/set-key "ea" 'cider-eval-last-sexp-and-append)
+    (evil-leader/set-key "ec" 'cider-eval-last-sexp-and-replace)
+    (evil-leader/set-key "ef" 'cider-eval-sexp-at-point)
 
     (evil-leader/set-key "cd" 'cider-doc)
     (evil-leader/set-key "cc" 'cider-connect)
@@ -353,6 +390,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("a94f1a015878c5f00afab321e4fef124b2fc3b823c8ddd89d360d710fc2bddfc" default)))
  '(package-selected-packages
    (quote
     (clj-refactor yaml-mode wrap-region use-package typed-clojure-mode smex slamhound rainbow-mode projectile powerline paren-face multiple-cursors markdown-mode linum-relative ido-vertical-mode guide-key glsl-mode flx-ido fancy-narrow expand-region evil-surround evil-org evil-magit evil-cleverparens drag-stuff company clojure-snippets cask better-defaults aggressive-indent ag)))
