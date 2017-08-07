@@ -104,7 +104,8 @@
     (eval-after-load "org-indent" '(diminish 'org-indent-mode))
     (eval-after-load "evil-org" '(diminish 'evil-org-mode))
     (eval-after-load "evil-cleverparens" '(diminish 'evil-cleverparens-mode))
-    (eval-after-load "autorevert" '(diminish 'auto-revert-mode))))
+    (eval-after-load "autorevert" '(diminish 'auto-revert-mode))
+    (eval-after-load "helm" '(diminish 'helm-mode))))
 
 ;; No slow stupid flyspell. Die!
 (eval-after-load "flyspell"
@@ -215,6 +216,16 @@
 (use-package ido-vertical-mode
   :init (ido-vertical-mode 1))
 
+(use-package helm
+  :config
+  (progn
+    (helm-mode 1)
+    (setq helm-autoresize-mode t)
+    (setq helm-buffer-max-length 40)
+    (global-set-key (kbd "M-x") 'helm-M-x)))
+
+(use-package helm-projectile)
+
 (use-package neotree
   :config
   (evil-leader/set-key
@@ -232,8 +243,8 @@
   :init (projectile-global-mode)
   :config
   (progn
-    (evil-leader/set-key "pf" 'projectile-find-file)
-    (evil-leader/set-key "pa" 'projectile-ag)
+    (evil-leader/set-key "pf" 'helm-projectile)
+    (evil-leader/set-key "pa" 'helm-projectile-ag)
     (evil-leader/set-key "pk" 'projectile-kill-buffers)))
 
 (use-package yasnippet

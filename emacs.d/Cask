@@ -48,3 +48,5 @@
 (depends-on "airline-themes")
 (depends-on "solaire-mode")
 (depends-on "neotree")
+(depends-on "helm")
+(depends-on "helm-projectile")
