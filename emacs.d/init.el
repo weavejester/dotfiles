@@ -402,7 +402,8 @@
     (evil-leader/set-key "rcc" 'cljr-cycle-coll)
     (evil-leader/set-key "rcp" 'cljr-cycle-privacy)
     (evil-leader/set-key "rcs" 'clojure-toggle-keyword-string)
-    (evil-leader/set-key "rfe" 'cljr-create-fn-from-example)))
+    (evil-leader/set-key "rfe" 'cljr-create-fn-from-example)
+    (evil-leader/set-key "rrs" 'cljr-rename-symbol)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
