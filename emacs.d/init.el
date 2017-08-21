@@ -56,7 +56,7 @@
 
 (use-package doom-themes
   :init
-  (load-theme 'doom-vibrant t)
+  (load-theme 'doom-one t)
   :config
   (progn
     (doom-themes-neotree-config)
