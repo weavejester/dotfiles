@@ -224,6 +224,7 @@
     (helm-mode 1)
     (setq helm-autoresize-mode t)
     (setq helm-buffer-max-length 40)
+    (diminish 'helm-mode)
     (global-set-key (kbd "M-x") 'helm-M-x)))
 
 (use-package helm-projectile)
