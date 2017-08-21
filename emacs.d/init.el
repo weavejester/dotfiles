@@ -64,7 +64,9 @@
 
 (use-package solaire-mode
   :init
-  (solaire-mode))
+  (solaire-mode)
+  :config
+  (add-hook 'after-change-major-mode-hook 'turn-on-solaire-mode))
 
 (use-package powerline)
 
