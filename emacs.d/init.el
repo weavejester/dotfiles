@@ -272,6 +272,11 @@
 (use-package glsl-mode
   :config (setq c-basic-offset 4))
 
+(use-package elisp-mode
+  :config
+  (progn
+    (evil-leader/set-key "ee" 'eval-last-sexp)))
+
 (use-package clojure-mode
   :mode (("\\.edn$" . clojure-mode))
   :config
