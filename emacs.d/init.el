@@ -281,6 +281,8 @@
   :mode (("\\.edn$" . clojure-mode))
   :config
   (progn
+    (setq clojure-align-forms-automatically t)
+
     (define-clojure-indent
       (defroutes 'defun)
       (GET 2)
