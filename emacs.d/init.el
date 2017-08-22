@@ -283,7 +283,8 @@
 (use-package neotree
   :config
   (evil-leader/set-key
-    "tt" 'neotree-toggle))
+    "tt" 'neotree-toggle
+    "tp" 'neotree-projectile-action))
 
 (use-package fancy-narrow
   :config
