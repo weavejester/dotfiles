@@ -89,7 +89,8 @@
           airline-utf-glyph-readonly            #xe0a2
           airline-utf-glyph-linenumber          #xe0a1)))
 
-(setq eshell-prompt-function
+(setq eshell-prompt-regexp "^ [^$]*[$] "
+      eshell-prompt-function
       (lambda ()
         (concat
          (propertize
@@ -97,29 +98,25 @@
           'face `(:foreground ,(face-foreground 'airline-normal-outer)
                   :background ,(face-background 'airline-normal-outer)))
 
+         (propertize
+          (char-to-string airline-utf-glyph-separator-left)
+          'face `(:foreground ,(face-background 'airline-normal-outer)
+                  :background ,(face-background 'airline-normal-inner)))
+
          (let ((git-branch (airline-curr-dir-git-branch-string (eshell/pwd))))
            (if (not (or (null git-branch) (string= "" git-branch)))
                (concat
                 (propertize
-                 (concat (char-to-string airline-utf-glyph-separator-left) " ")
-                 'face `(:foreground ,(face-background 'airline-normal-outer)
-                         :background ,(face-background 'airline-insert-outer)))
-
-                (propertize
-                 (concat (char-to-string airline-utf-glyph-branch) " " git-branch " ")
-                 'face `(:foreground ,(face-foreground 'airline-insert-outer)
-                         :background ,(face-background 'airline-insert-outer)))
-
-                (propertize
-                 (char-to-string airline-utf-glyph-separator-left)
+                 (concat " " (char-to-string airline-utf-glyph-branch) " " git-branch " ")
                  'face `(:foreground ,(face-background 'airline-insert-outer)
-                         :background ,(face-background 'airline-insert-inner))))
+                         :background ,(face-background 'airline-insert-inner))))))
 
-             (propertize
-               (char-to-string airline-utf-glyph-separator-left)
-               'face `(:foreground ,(face-background 'airline-normal-outer)
-                       :background ,(face-background 'airline-normal-inner)))))
+         (propertize
+          (char-to-string airline-utf-glyph-subseparator-left)
+          'face `(:foreground ,(face-background 'airline-insert-outer)
+                  :background ,(face-background 'airline-insert-inner)))
 
+         (propertize "$" 'invisible t)
          (propertize " " 'face `()))))
 
 (use-package diminish
