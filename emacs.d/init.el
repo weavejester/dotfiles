@@ -215,7 +215,8 @@
         (evil-leader/set-key "ws" 'split-window-below)
         (evil-leader/set-key "wh" 'split-window-horizontally)
         (evil-leader/set-key "wv" 'split-window-vertically)
-        (evil-leader/set-key "ww" 'other-window)))
+        (evil-leader/set-key "ww" 'other-window)
+        (evil-leader/set-key "wk" 'kill-buffer-and-window)))
     (use-package evil-magit
       :config
       (progn
@@ -249,11 +250,6 @@
     (rename-buffer (concat "*eshell: " name "*"))
     (insert (concat "ls"))
     (eshell-send-input)))
-
-(defun eshell/x ()
-  (insert "exit")
-  (eshell-send-input)
-  (delete-window))
 
 (evil-leader/set-key "sh" 'eshell-here)
 
