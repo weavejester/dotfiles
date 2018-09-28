@@ -474,7 +474,7 @@
     ("a94f1a015878c5f00afab321e4fef124b2fc3b823c8ddd89d360d710fc2bddfc" default)))
  '(package-selected-packages
    (quote
-    (clj-refactor yaml-mode wrap-region use-package typed-clojure-mode smex slamhound rainbow-mode projectile powerline paren-face multiple-cursors markdown-mode linum-relative ido-vertical-mode guide-key glsl-mode flx-ido fancy-narrow expand-region evil-surround evil-org evil-magit evil-cleverparens drag-stuff company clojure-snippets cask better-defaults aggressive-indent ag)))
+    (nginx-mode fill-column-indicator helm-ag haskell-mode clj-refactor yaml-mode wrap-region use-package typed-clojure-mode smex slamhound rainbow-mode projectile powerline paren-face multiple-cursors markdown-mode linum-relative ido-vertical-mode guide-key glsl-mode flx-ido fancy-narrow expand-region evil-surround evil-org evil-magit evil-cleverparens drag-stuff company clojure-snippets cask better-defaults aggressive-indent ag)))
  '(safe-local-variable-values
    (quote
     ((cider-refresh-after-fn . "integrant.repl/resume")
