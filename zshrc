@@ -50,7 +50,7 @@ compctl -K mark_complete jump
 compctl -K mark_complete unmark
 
 # Syntax highlighting
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Z
 . `brew --prefix`/etc/profile.d/z.sh
