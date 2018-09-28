@@ -432,7 +432,12 @@
     (setq cider-repl-use-pretty-printing t)
     (setq cider-refresh-before-fn "reloaded.repl/suspend")
     (setq cider-refresh-after-fn "reloaded.repl/resume")
-    (setq cider-cljs-lein-repl "(do (reloaded.repl/go) (user/cljs-repl))")))
+    (setq cider-cljs-lein-repl "(do (reloaded.repl/go) (user/cljs-repl))")
+    (setq cider-prompt-for-symbol nil)
+
+    (evil-define-key '(insert normal) cider-mode-map
+      (kbd "M-.") 'cider-find-var
+      (kbd "M-,") 'cider-pop-back)))
 
 (use-package typed-clojure-mode
   :init
