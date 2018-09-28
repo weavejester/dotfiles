@@ -76,7 +76,9 @@
   :init
   (solaire-mode)
   :config
-  (add-hook 'after-change-major-mode-hook 'turn-on-solaire-mode))
+  (progn
+    (add-hook 'after-change-major-mode-hook 'turn-on-solaire-mode))
+    (solaire-mode-swap-bg))
 
 (use-package powerline)
 
