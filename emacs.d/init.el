@@ -439,13 +439,6 @@
       (kbd "M-.") 'cider-find-var
       (kbd "M-,") 'cider-pop-back)))
 
-(use-package typed-clojure-mode
-  :init
-  (add-hook 'clojure-mode-hook 'typed-clojure-mode)
-  :config
-  (progn
-    (evil-leader/set-key "tc" 'typed-clojure-check-ns)))
-
 (use-package clj-refactor
   :init
   (add-hook 'clojure-mode-hook (lambda () (clj-refactor-mode 1)))
