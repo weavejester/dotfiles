@@ -54,12 +54,22 @@
 
 ;; Themes
 
+(use-package neotree
+  :config
+  (progn
+    (setq neo-smart-open t)
+    (setq neo-window-fixed-size nil)
+    (evil-leader/set-key
+      "tt" 'neotree-toggle
+      "tp" 'neotree-projectile-action)))
+
 (use-package doom-themes
   :init
   (load-theme 'doom-one t)
   :config
   (progn
     (doom-themes-neotree-config)
+    (setq doom-neotree-line-spacing 0)
     (doom-themes-org-config)))
 
 (use-package solaire-mode
@@ -279,12 +289,6 @@
     (global-set-key (kbd "M-x") 'helm-M-x)))
 
 (use-package helm-projectile)
-
-(use-package neotree
-  :config
-  (evil-leader/set-key
-    "tt" 'neotree-toggle
-    "tp" 'neotree-projectile-action))
 
 (use-package fancy-narrow
   :config
