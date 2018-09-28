@@ -24,9 +24,6 @@ export PATH=$PATH:$HOME/.cask/bin
 # Turn off stupid ZSH auto-correct
 unsetopt correct_all
 
-# RBEnv
-eval "$(rbenv init -)"
-
 # Bookmarking
 export MARKPATH=$HOME/.marks
 
