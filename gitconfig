@@ -2,6 +2,7 @@
   st = status
   dc = diff --cached
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) <%an>%Creset' --abbrev-commit
+  cb = checkout -b
   release = "!f() { git commit -am \"Release $1\"; git tag -a $1 -m \"Version $1\"; }; f"
 [color]
   ui = true
