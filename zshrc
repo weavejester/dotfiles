@@ -20,6 +20,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export PATH=$PATH:$HOME/.oh-my-zsh/bin:$HOME/bin
 export PATH=$PATH:/usr/local/share/npm/bin
 export PATH=$PATH:$HOME/.cask/bin
+export PATH=$PATH:/usr/local/anaconda3/bin
 
 # Turn off stupid ZSH auto-correct
 unsetopt correct_all
@@ -55,5 +56,12 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Z
 . `brew --prefix`/etc/profile.d/z.sh
 
+# Go
+export GOPATH=$HOME/Code/Public/go
+
 # added by travis gem
 [ -f /Users/jim/.travis/travis.sh ] && source /Users/jim/.travis/travis.sh
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
