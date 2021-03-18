@@ -1,11 +1,6 @@
 ;;;; Initialize ;;;;
 
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
+(setq warning-minimum-level :emergency)
 
 (require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
 (cask-initialize)
@@ -27,7 +22,7 @@
 ;;;; Editor ;;;;
 
 (when (window-system)
-  (set-default-font "Fira Code"))
+  (set-frame-font "Fira Code"))
 
 ;; Enable ligatures
 (mac-auto-operator-composition-mode)
@@ -52,6 +47,9 @@
 (setq require-final-newline t)
 (setq show-trailing-whitespace t)
 
+;; Tab size
+(setq-default tab-width 4)
+
 ;; Themes
 
 (use-package neotree
@@ -70,7 +68,9 @@
   (progn
     (doom-themes-neotree-config)
     (setq doom-neotree-line-spacing 0)
-    (doom-themes-org-config)))
+    (doom-themes-org-config)
+    (setq org-hide-leading-stars nil
+          org-hide-leading-stars-before-indent-mode nil)))
 
 (use-package solaire-mode
   :init
@@ -99,7 +99,8 @@
           airline-utf-glyph-subseparator-right  #xe0b3
           airline-utf-glyph-branch              #xe0a0
           airline-utf-glyph-readonly            #xe0a2
-          airline-utf-glyph-linenumber          #xe0a1)))
+          airline-utf-glyph-linenumber          #xe0a1
+          airline-shortened-directory-length    16)))
 
 (setq eshell-prompt-regexp "^ [^$]*[$] "
       eshell-prompt-function
@@ -201,41 +202,51 @@
 
 (use-package magit)
 
+(use-package undo-tree
+  :init
+  (global-undo-tree-mode))
+
 (use-package evil
   :init
   (progn
     (evil-mode 1)
-    (use-package evil-leader
-      :init (global-evil-leader-mode)
-      :config
-      (progn
-        (evil-leader/set-leader "SPC")
-        (evil-leader/set-key "wd" 'delete-window)
-        (evil-leader/set-key "wo" 'delete-other-windows)
-        (evil-leader/set-key "ws" 'split-window-below)
-        (evil-leader/set-key "wh" 'split-window-horizontally)
-        (evil-leader/set-key "wv" 'split-window-vertically)
-        (evil-leader/set-key "ww" 'other-window)
-        (evil-leader/set-key "wk" 'kill-buffer-and-window)))
-    (use-package evil-magit
-      :config
-      (progn
-        (evil-leader/set-key "gs" 'magit-status)))
-    (use-package evil-org
-      :init (add-hook 'org-mode-hook 'evil-org-mode))
-    (use-package evil-cleverparens
-      :init   (add-hook 'paredit-mode-hook 'evil-cleverparens-mode)
-      :config (setq evil-cleverparens-swap-move-by-word-and-symbol t))
-    (use-package evil-surround
-      :config
-      (progn
-        (global-evil-surround-mode 1)
-        (add-to-list 'evil-surround-operator-alist '(evil-cp-change . change))
-        (add-to-list 'evil-surround-operator-alist '(evil-cp-delete . delete)))))
+    (evil-set-undo-system 'undo-tree))
   :config
   (progn
     (setq evil-cross-lines t)
     (setq evil-move-cursor-back nil)))
+
+(use-package evil-leader
+  :init
+  (progn
+    (global-evil-leader-mode)
+    (evil-leader/set-leader "<SPC>")
+    (evil-leader/set-key "wd" 'delete-window)
+    (evil-leader/set-key "wo" 'delete-other-windows)
+    (evil-leader/set-key "ws" 'split-window-below)
+    (evil-leader/set-key "wh" 'split-window-horizontally)
+    (evil-leader/set-key "wv" 'split-window-vertically)
+    (evil-leader/set-key "ww" 'other-window)
+    (evil-leader/set-key "wk" 'kill-buffer-and-window)))
+
+(use-package evil-magit
+  :config
+  (progn
+    (evil-leader/set-key "gs" 'magit-status)))
+
+(use-package evil-org
+  :init (add-hook 'org-mode-hook 'evil-org-mode))
+
+(use-package evil-cleverparens
+  :init   (add-hook 'paredit-mode-hook 'evil-cleverparens-mode)
+  :config (setq evil-cleverparens-swap-move-by-word-and-symbol t))
+
+(use-package evil-surround
+  :config
+  (progn
+    (global-evil-surround-mode 1)
+    (add-to-list 'evil-surround-operator-alist '(evil-cp-change . change))
+    (add-to-list 'evil-surround-operator-alist '(evil-cp-delete . delete))))
 
 (defun eshell-here ()
   (interactive)
@@ -380,6 +391,13 @@
     (define-clojure-indent
       (s/fdef 1))
 
+    (define-clojure-indent
+      (rf/reg-event-db 1)
+      (rf/reg-event-fx 1)
+      (rf/reg-sub 1)
+      (rf/reg-fx 1)
+      (rf/reg-cofx 1))
+
     (setq clojure--prettify-symbols-alist
           '(("fn" . ?λ)))
 
@@ -393,7 +411,8 @@
     (defun cider-save-and-refresh ()
       (interactive)
       (save-buffer)
-      (call-interactively 'cider-refresh))
+      (with-current-buffer (cider-current-repl 'clj)
+        (cider-ns-refresh)))
 
     (defun cider-eval-last-sexp-and-append ()
       (interactive)
@@ -430,9 +449,6 @@
     (setq cider-prompt-save-file-on-load nil)
     (setq cider-repl-display-help-banner nil)
     (setq cider-repl-use-pretty-printing t)
-    (setq cider-refresh-before-fn "reloaded.repl/suspend")
-    (setq cider-refresh-after-fn "reloaded.repl/resume")
-    (setq cider-cljs-lein-repl "(do (reloaded.repl/go) (user/cljs-repl))")
     (setq cider-prompt-for-symbol nil)
 
     (evil-define-key '(insert normal) cider-mode-map
@@ -467,10 +483,15 @@
     ("a94f1a015878c5f00afab321e4fef124b2fc3b823c8ddd89d360d710fc2bddfc" default)))
  '(package-selected-packages
    (quote
-    (nginx-mode fill-column-indicator helm-ag haskell-mode clj-refactor yaml-mode wrap-region use-package typed-clojure-mode smex slamhound rainbow-mode projectile powerline paren-face multiple-cursors markdown-mode linum-relative ido-vertical-mode guide-key glsl-mode flx-ido fancy-narrow expand-region evil-surround evil-org evil-magit evil-cleverparens drag-stuff company clojure-snippets cask better-defaults aggressive-indent ag)))
+    (floobits nlinum-relative go-mode nginx-mode fill-column-indicator helm-ag haskell-mode clj-refactor yaml-mode wrap-region use-package typed-clojure-mode smex slamhound rainbow-mode projectile powerline paren-face multiple-cursors markdown-mode linum-relative ido-vertical-mode guide-key glsl-mode flx-ido fancy-narrow expand-region evil-surround evil-org evil-magit evil-cleverparens drag-stuff company clojure-snippets cask better-defaults aggressive-indent ag)))
  '(safe-local-variable-values
    (quote
-    ((cider-refresh-after-fn . "integrant.repl/resume")
+    ((cider-cljs-repl-types (duct "(do (dev) (cljs-go) (cljs-repl))"))
+     (cider-ns-refresh-after-fn . "reloaded.repl/start")
+     (cider-ns-refresh-before-fn . "reloaded.repl/stop")
+     (cider-ns-refresh-after-fn . "integrant.repl/resume")
+     (cider-ns-refresh-before-fn . "integrant.repl/suspend")
+     (cider-refresh-after-fn . "integrant.repl/resume")
      (cider-refresh-before-fn . "integrant.repl/suspend")
      (cider-cljs-lein-repl . "(do (dev) (go) (cljs-repl))")
      (cider-refresh-after-fn . "reloaded.repl/resume")
